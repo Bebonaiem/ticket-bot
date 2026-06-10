@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Pro Bot - Installation Guide</title>
+    
+    <!-- Advanced SEO & Metadata -->
+    <meta name="description" content="The comprehensive installation guide for Ticket Pro Bot by BeboNaiem. Host a professional Discord ticket system with a React dashboard on Pterodactyl.">
+    
+    <!-- AUTHOR -->
+    <meta name="author" content="BeboNaiem">
+    
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="
+        discord ticket bot, ticket pro, bebonaiem, builtbybit resources, premium discord bot, best ticket bot 2024, discord support system, customer service bot, help desk software, source code, white label bot,
+        web dashboard, admin panel, staff control center, ticket management interface, html transcripts, dark mode dashboard, responsive web panel, chart.js stats, ticket analytics,
+        pterodactyl panel, ptero, pterodactyl egg, nodejs hosting, server allocation, network configuration, startup command, sftp file upload, docker container, ubuntu 20.04,
+        digitalocean, vultr, hetzner, oracle cloud free tier, aws ec2, vps setup guide,
+        discord.js v14, node.js 20, javascript, npm install, package.json, main.js, .env file, express.js, react.js, api integration,
+        cloudflare dns, cloudflare ssl, orange cloud, proxy status, a record, port forwarding, reverse proxy, nginx configuration, https redirect,
+        discord oauth2 implementation, discord login, client id, client secret, redirect uri, callback mismatch,
+        slash commands, message components, interaction create, buttons, modals, threads, embed builder,
+        minecraft server support, fivem roleplay support, gta v rp bot, roblox group bot, smma bot, agency support bot,
+        connection refused, port in use, bot startup error, intent error, bot offline, websocket error,
+        how to host a discord bot 24/7, setup ticket bot with web panel, fix discord bot dashboard not loading
+    ">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- Open Graph / Discord / Facebook Image -->
+    <meta property="og:title" content="Ticket Pro Bot - Installation Guide">
+    <meta property="og:description" content="Step-by-step tutorial: Install BeboNaiem's Ticket Pro Bot + Web Dashboard on Pterodactyl. Solves DNS, Port, and OAuth2 issues.">
+    <meta property="og:url" content="https://builtbybit.com/resources/discord-ticket-system-with-dashboard.71321/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ticket Pro Docs by BeboNaiem">
+    
+    <!-- THIS IS THE IMAGE THAT SHOWS ON SHARE -->
+    <meta property="og:image" content="https://learnfun.me/Ticket_Pro_Bot_docs/TicketBot.webp">
+    <meta property="og:image:width" content="96">
+    <meta property="og:image:height" content="96">
+    <meta property="og:image:alt" content="Ticket Pro Bot Icon">
+    
+    <!-- Twitter Card Image -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ticket Pro Bot Setup Guide">
+    <meta name="twitter:creator" content="@BeboNaiem">
+    <meta name="twitter:description" content="Learn how to host your Discord Ticket Bot with a Dashboard.">
+    <meta name="twitter:image" content="https://learnfun.me/Ticket_Pro_Bot_docs/TicketBot.webp">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1; /* Indigo */
+            --primary-hover: #4f46e5;
+            --discord: #5865F2; 
+            --cloudflare: #F38020;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-sidebar: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --code-bg: #020617;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-area {
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            flex: 1;
+            overflow-y: auto; /* Allow scroll if menu is too long */
+        }
+
+        .nav-links li { margin-bottom: 0.5rem; }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+        
+        /* Sidebar Buttons */
+        .buy-btn {
+            background-color: var(--success) !important;
+            color: white !important;
+            margin-top: 2rem;
+            justify-content: center;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        .buy-btn:hover {
+            background-color: #059669 !important;
+            transform: translateY(-1px);
+        }
+
+        .discord-btn {
+            background-color: var(--discord) !important;
+            color: white !important;
+            margin-top: 0.5rem;
+            justify-content: center;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+        }
+        .discord-btn:hover {
+            background-color: #4752c4 !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-links a i { width: 20px; text-align: center; }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+            padding-bottom: 10rem; 
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* MODE TOGGLE SWITCH */
+        .mode-toggle-container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem;
+            border-radius: 12px;
+            display: inline-flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mode-btn.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+        }
+
+        .mode-btn:hover:not(.active) {
+            background-color: rgba(255,255,255,0.05);
+            color: white;
+        }
+
+        /* Steps */
+        .step-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 2rem; 
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0; /* Prevent shrinking on mobile */
+        }
+
+        h2 { font-size: 1.5rem; color: var(--text-main); }
+        p { color: var(--text-muted); margin-bottom: 1rem; }
+        ul, ol { margin-left: 1.5rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+
+        /* Code Blocks */
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            position: relative;
+            width: 100%; /* Ensure it fits container */
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid var(--border);
+            background-color: rgba(255, 255, 255, 0.03);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+        }
+
+        pre {
+            padding: 1rem;
+            overflow-x: auto; /* Critical for mobile code blocks */
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            white-space: pre; /* Keep formatting */
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 1rem 1rem 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+            font-size: 0.95rem;
+            overflow-wrap: break-word; /* Prevent text overflow */
+        }
+        .alert-info { background-color: rgba(99, 102, 241, 0.1); border-color: var(--primary); color: #c7d2fe; }
+        .alert-warning { background-color: rgba(245, 158, 11, 0.1); border-color: var(--warning); color: #fcd34d; }
+        .alert-danger { background-color: rgba(239, 68, 68, 0.1); border-color: var(--danger); color: #fca5a5; }
+        .alert-success { background-color: rgba(16, 185, 129, 0.1); border-color: var(--success); color: #6ee7b7; }
+        
+        .highlight { color: var(--primary); font-weight: 600; }
+        .file-tree { font-family: 'JetBrains Mono', monospace; color: var(--text-muted); }
+
+        .support-link-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--discord);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .support-link-inline:hover { background-color: #4752c4; }
+
+        /* Visibility Helpers */
+        .hidden { display: none !important; }
+
+        /* Mobile Responsive */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2000;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 0.6rem;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 900px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 85%;
+                max-width: 320px;
+                box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 6rem 1.5rem 2rem 1.5rem;
+                width: 100%;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            .step-card {
+                padding: 1.5rem;
+            }
+            .mode-toggle-container {
+                flex-direction: column;
+                width: 100%;
+            }
+            .mode-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .logo-area {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars fa-lg"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo-area">
+            <i class="fas fa-ticket-alt"></i> TicketBot Pro
+        </div>
+        <ul class="nav-links">
+            <li><a href="#welcome" class="active" onclick="closeSidebarOnMobile()"><i class="fas fa-home"></i> Welcome</a></li>
+            <li><a href="#upload" onclick="closeSidebarOnMobile()"><i class="fas fa-cloud-upload-alt"></i> Upload Files</a></li>
+            
+            <!-- Dynamic Sidebar Link -->
+            <li id="nav-dns" class="hidden"><a href="#dns" onclick="closeSidebarOnMobile()"><i class="fas fa-globe"></i> DNS Setup</a></li>
+            
+            <li><a href="#env" onclick="closeSidebarOnMobile()"><i class="fas fa-key"></i> Configure .env</a></li>
+            <li><a href="#port" onclick="closeSidebarOnMobile()"><i class="fas fa-network-wired"></i> Fix Port</a></li>
+            <li><a href="#oauth" onclick="closeSidebarOnMobile()"><i class="fab fa-discord"></i> Discord OAuth2</a></li>
+            <li><a href="#start" onclick="closeSidebarOnMobile()"><i class="fas fa-play"></i> Start Bot</a></li>
+            <li><a href="#dashboard" onclick="closeSidebarOnMobile()"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#troubleshooting" onclick="closeSidebarOnMobile()"><i class="fas fa-life-ring"></i> Troubleshooting</a></li>
+            
+            <!-- Buy Button -->
+            <li>
+                <a href="https://builtbybit.com/resources/discord-ticket-system-with-dashboard.71321/" target="_blank" class="buy-btn">
+                    <i class="fas fa-shopping-cart"></i> Buy on BuiltByBit
+                </a>
+            </li>
+
+            <!-- Support Button -->
+            <li>
+                <a href="https://discord.gg/HHPCqX8pbg" target="_blank" class="discord-btn">
+                    <i class="fab fa-discord"></i> Get Support
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    <main class="main-content">
+        
+        <header id="welcome">
+            <h1>Installation & Setup Guide</h1>
+            <p class="subtitle">Select your preferred installation method below to see the correct instructions.</p>
+            
+            <!-- Mode Toggle -->
+            <div class="mode-toggle-container">
+                <button class="mode-btn active" onclick="switchMode('ip')" id="btn-ip">
+                    <i class="fas fa-server"></i> Use IP Address
+                </button>
+                <button class="mode-btn" onclick="switchMode('domain')" id="btn-domain">
+                    <i class="fas fa-globe"></i> Use Custom Domain
+                </button>
+            </div>
+        </header>
+
+        <!-- Step 1: Upload (Common) -->
+        <section id="upload" class="step-card">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <h2>Upload Bot Files</h2>
+            </div>
+            <p>First, we need to get the bot files onto your server.</p>
+            <ol>
+                <li>Open your <strong>Pterodactyl Panel</strong>.</li>
+                <li>Navigate to the <strong>File Manager</strong> tab.</li>
+                <li>Upload the downloaded <span class="highlight">.zip</span> file.</li>
+                <li>Click the three dots (⋮) next to the file and select <strong>Decompress / Unarchive</strong>.</li>
+            </ol>
+            <div class="code-block">
+                <div class="code-header"><span>File Structure</span></div>
+                <pre class="file-tree">
+/home/container
+├── attachments/
+├── backups/
+├── bot/
+├── dashboard/
+├── database/
+├── locales/
+├── utils/
+├── .env
+├── jest.config.js
+├── main.js
+└── package.json</pre>
+            </div>
+        </section>
+
+        <!-- Step 1.5: DNS Setup (DOMAIN MODE ONLY) -->
+        <section id="dns" class="step-card hidden">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <h2>Link Domain (Cloudflare / Namecheap)</h2>
+            </div>
+            <p>You need to point your domain to your Pterodactyl Server IP address.</p>
+
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i> <strong>Note:</strong> Since your server uses a custom port (not 80/443), users will still need to type the port (e.g., <code>example.com:25565</code>) unless you set up a Reverse Proxy (Advanced). This guide covers the standard setup.
+            </div>
+
+            <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--cloudflare);"><i class="fab fa-cloudflare"></i> Cloudflare Users</h3>
+            <ol>
+                <li>Go to the <strong>DNS</strong> tab in Cloudflare.</li>
+                <li>Click <strong>Add Record</strong>.</li>
+                <li><strong>Type:</strong> <code>A</code></li>
+                <li><strong>Name:</strong> <code>@</code> (for main domain) or <code>ticket</code> (for ticket.yourdomain.com).</li>
+                <li><strong>IPv4 Address:</strong> Enter your Pterodactyl Server IP (e.g., <code>123.45.67.89</code>). <strong>Do not include the port.</strong></li>
+                <li><strong>Proxy Status:</strong> You can enable <strong style="color: #F38020;">Proxied (Orange Cloud)</strong>.</li>
+            </ol>
+            <div class="alert alert-success">
+                <strong>RECOMMENDED:</strong> You can enable Cloudflare Proxy (Orange Cloud) to benefit from free SSL (HTTPS) and DDoS protection.
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem;"><i class="fas fa-server"></i> Namecheap / Other Registrars</h3>
+            <ol>
+                <li>Go to <strong>Advanced DNS</strong> (or DNS Management).</li>
+                <li>Add a new <strong>A Record</strong>.</li>
+                <li><strong>Host:</strong> <code>@</code></li>
+                <li><strong>Value/IP:</strong> Your Server IP Address.</li>
+                <li>Save changes.</li>
+            </ol>
+        </section>
+
+        <!-- Step 2/3: Env Config -->
+        <section id="env" class="step-card">
+            <div class="step-header">
+                <div class="step-number" id="num-env">2</div>
+                <h2>Configure the .env File</h2>
+            </div>
+            <p>Open the <code>.env</code> file in the File Manager. Replace values with your real credentials.</p>
+            
+            <!-- IP Version -->
+            <div id="env-ip">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>.env (IP Address Mode)</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="far fa-copy"></i> Copy</button>
+                    </div>
+                    <pre>BOT_TOKEN=YOUR_DISCORD_BOT_TOKEN
+CLIENT_ID=YOUR_CLIENT_ID
+CLIENT_SECRET=YOUR_CLIENT_SECRET
+CALLBACK_URL=http://YOUR_SERVER_IP:PORT/auth/callback
+BASE_URL=YOUR_SERVER_IP:PORT
+SESSION_SECRET=RANDOM_SECRET_STRING</pre>
+                </div>
+            </div>
+
+            <!-- Domain Version -->
+            <div id="env-domain" class="hidden">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>.env (Domain Mode)</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="far fa-copy"></i> Copy</button>
+                    </div>
+                    <pre>BOT_TOKEN=YOUR_DISCORD_BOT_TOKEN
+CLIENT_ID=YOUR_CLIENT_ID
+CLIENT_SECRET=YOUR_CLIENT_SECRET
+CALLBACK_URL=https://your-domain.com:80/auth/callback
+BASE_URL=https://your-domain.com:80
+SESSION_SECRET=RANDOM_SECRET_STRING</pre>
+                </div>
+                <div class="alert alert-info">
+                    Make sure to replace <code>your-domain.com</code> with your actual domain name.
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Where to find keys:</strong><br>
+                <ul>
+                    <li><strong>BOT_TOKEN:</strong> Discord Developer Portal → Bot → Reset Token</li>
+                    <li><strong>CLIENT_ID:</strong> Discord Developer Portal → OAuth2</li>
+                    <li><strong>CLIENT_SECRET:</strong> Discord Developer Portal → OAuth2</li>
+                </ul>
+            </div>
+            
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i> <strong>IMPORTANT:</strong> The <code>PORT</code> must match the port allocated in the Pterodactyl <strong>Network</strong> tab.
+            </div>
+        </section>
+
+        <!-- Step 3/4: Port Binding -->
+        <section id="port" class="step-card">
+            <div class="step-header">
+                <div class="step-number" id="num-port">3</div>
+                <h2>Fix Port Binding (Required)</h2>
+            </div>
+            <p>To ensure the dashboard works on Pterodactyl, we need to bind the port dynamically. <strong style="color:var(--text-main);">You need to change the default port</strong> to the one assigned by your server.</p>
+            <ol>
+                <li>Open the file <code>main.js</code>.</li>
+                <li>Scroll to <strong>line 66</strong> (or search for <code>const PORT</code>).</li>
+                <li>Replace that line completely with the code below:</li>
+            </ol>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span>JavaScript</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="far fa-copy"></i> Copy</button>
+                </div>
+                <pre><code class="language-javascript">const PORT = process.env.PORT || 3000;</code></pre>
+            </div>
+        </section>
+
+        <!-- Step 4/5: OAuth -->
+        <section id="oauth" class="step-card">
+            <div class="step-header">
+                <div class="step-number" id="num-oauth">4</div>
+                <h2>Configure Discord OAuth2 Redirect</h2>
+            </div>
+            <p>For the login system to work, Discord needs to know your website address.</p>
+            <ol>
+                <li>Go to the <a href="https://discord.com/developers/applications" target="_blank" style="color:var(--primary)">Discord Developer Portal</a>.</li>
+                <li>Open your Application.</li>
+                <li>Navigate to the <strong>OAuth2</strong> tab.</li>
+                <li>Under <strong>Redirects</strong>, add the following URL:</li>
+            </ol>
+
+            <!-- IP Version -->
+            <div id="oauth-ip">
+                <div class="code-block">
+                    <div class="code-header"><span>Redirect URL (IP Mode)</span></div>
+                    <pre>http://YOUR_SERVER_IP:PORT/auth/callback</pre>
+                </div>
+            </div>
+
+            <!-- Domain Version -->
+            <div id="oauth-domain" class="hidden">
+                <div class="code-block">
+                    <div class="code-header"><span>Redirect URL (Domain Mode)</span></div>
+                    <pre>https://your-domain.com:80/auth/callback</pre>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle"></i> <strong>WARNING:</strong> This URL must match <strong>EXACTLY</strong> the <code>CALLBACK_URL</code> you entered in your <code>.env</code> file.
+            </div>
+        </section>
+
+        <!-- Step 5/6: Start -->
+        <section id="start" class="step-card">
+            <div class="step-header">
+                <div class="step-number" id="num-start">5</div>
+                <h2>Start the Bot</h2>
+            </div>
+            <p>You are ready to launch!</p>
+            <ol>
+                <li>Return to your Pterodactyl Panel.</li>
+                <li>Open the <strong>Console</strong> tab.</li>
+                <li>Click the <strong>Start</strong> button.</li>
+            </ol>
+            <p>If configured correctly, the console will show that the bot has logged in and the server is running.</p>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="step-card" style="border-color: var(--primary);">
+            <div class="step-header">
+                <i class="fas fa-rocket fa-2x" style="color: var(--primary);"></i>
+                <h2>Dashboard Access</h2>
+            </div>
+            <p>Once the bot is running, you can access the management dashboard here:</p>
+            
+            <div id="dash-ip">
+                <div class="code-block">
+                    <div class="code-header"><span>Browser URL</span></div>
+                    <pre>http://YOUR_SERVER_IP:PORT</pre>
+                </div>
+            </div>
+
+            <div id="dash-domain" class="hidden">
+                <div class="code-block">
+                    <div class="code-header"><span>Browser URL</span></div>
+                    <pre>https://your-domain.com:80</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="step-card">
+            <div class="step-header">
+                <i class="fas fa-wrench fa-2x" style="color: var(--text-muted);"></i>
+                <h2>Troubleshooting</h2>
+            </div>
+            
+            <p><strong>Double-check that the PORT is the same in these 3 places:</strong></p>
+            <ul>
+                <li>Your <code>.env</code> file</li>
+                <li>The Pterodactyl <strong>Network</strong> tab (Allocation)</li>
+                <li>The Discord Developer Portal <strong>OAuth2 Redirects</strong></li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Still having issues?</strong><br>
+                If the bot does not start or you have errors, please join our support server:<br><br>
+                <a href="https://discord.gg/HHPCqX8pbg" target="_blank" class="support-link-inline">
+                    <i class="fab fa-discord"></i> Join Discord Support
+                </a>
+                <br><br>
+                Please provide:
+                <ul style="margin-top:5px;">
+                    <li>The full console error message.</li>
+                    <li>A screenshot of your <code>.env</code> file (please blur the secrets).</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer style="text-align: center; color: var(--border); padding-bottom: 2rem;">
+            &copy; 2025 Ticket Bot Pro by BeboNaiem. All rights reserved. <br>
+            <a href="https://discord.gg/HHPCqX8pbg" target="_blank" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none;">Support Server</a>
+        </footer>
+
+    </main>
+
+    <script>
+        // MODE SWITCHER LOGIC
+        function switchMode(mode) {
+            const btnIp = document.getElementById('btn-ip');
+            const btnDomain = document.getElementById('btn-domain');
+            
+            // Elements to toggle
+            const dnsSection = document.getElementById('dns');
+            const navDns = document.getElementById('nav-dns');
+            
+            const envIp = document.getElementById('env-ip');
+            const envDomain = document.getElementById('env-domain');
+            
+            const oauthIp = document.getElementById('oauth-ip');
+            const oauthDomain = document.getElementById('oauth-domain');
+
+            const dashIp = document.getElementById('dash-ip');
+            const dashDomain = document.getElementById('dash-domain');
+
+            // Step Numbers
+            const numEnv = document.getElementById('num-env');
+            const numPort = document.getElementById('num-port');
+            const numOauth = document.getElementById('num-oauth');
+            const numStart = document.getElementById('num-start');
+
+            if (mode === 'ip') {
+                btnIp.classList.add('active');
+                btnDomain.classList.remove('active');
+
+                // Hide Domain Steps
+                dnsSection.classList.add('hidden');
+                navDns.classList.add('hidden');
+                
+                // Show IP Content / Hide Domain Content
+                envIp.classList.remove('hidden');
+                envDomain.classList.add('hidden');
+
+                oauthIp.classList.remove('hidden');
+                oauthDomain.classList.add('hidden');
+
+                dashIp.classList.remove('hidden');
+                dashDomain.classList.add('hidden');
+
+                // Update Numbers
+                numEnv.innerText = "2";
+                numPort.innerText = "3";
+                numOauth.innerText = "4";
+                numStart.innerText = "5";
+
+            } else {
+                btnDomain.classList.add('active');
+                btnIp.classList.remove('active');
+
+                // Show Domain Steps
+                dnsSection.classList.remove('hidden');
+                navDns.classList.remove('hidden');
+
+                // Show Domain Content / Hide IP Content
+                envIp.classList.add('hidden');
+                envDomain.classList.remove('hidden');
+
+                oauthIp.classList.add('hidden');
+                oauthDomain.classList.remove('hidden');
+
+                dashIp.classList.add('hidden');
+                dashDomain.classList.remove('hidden');
+
+                // Update Numbers (Shift by 1 because of DNS step)
+                numEnv.innerText = "3";
+                numPort.innerText = "4";
+                numOauth.innerText = "5";
+                numStart.innerText = "6";
+            }
+        }
+
+        // Copy to Clipboard Functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const codeText = codeBlock.innerText;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalHtml = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.style.color = 'var(--success)';
+                button.style.borderColor = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHtml;
+                    button.style.color = '';
+                    button.style.borderColor = '';
+                }, 2000);
+            });
+        }
+
+        // Mobile Sidebar Toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Close sidebar when a link is clicked on mobile
+        function closeSidebarOnMobile() {
+            if (window.innerWidth <= 900) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        }
+
+        // Active Link Highlighter on Scroll
+        const sections = document.querySelectorAll("section, header");
+        const navLi = document.querySelectorAll(".nav-links a");
+
+        window.onscroll = () => {
+            var current = "";
+
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 5) {
+                current = "troubleshooting"; 
+            } else {
+                sections.forEach((section) => {
+                    // Only check visible sections
+                    if(getComputedStyle(section).display !== 'none') {
+                        const sectionTop = section.offsetTop;
+                        if (pageYOffset >= sectionTop - 150) { 
+                            current = section.getAttribute("id");
+                        }
+                    }
+                });
+            }
+
+            navLi.forEach((a) => {
+                a.classList.remove("active");
+                if (a.getAttribute("href").includes("#" + current) && current !== "") {
+                    a.classList.add("active");
+                }
+            });
+        };
+    </script>
+</body>
+</html>
