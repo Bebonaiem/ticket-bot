@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا | بريق للخدمات الفاخرة</title>
+    <meta name="description" content="اكتشف جميع خدمات بريق المتكاملة: النظافة الفاخرة، نقل العفش، صيانة المكيفات، والتعقيم الطبي في المملكة العربية السعودية.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="promo-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                ✦ المـعـايـنـة فـي بـريـق مـجـانـيـة حـالـيـاً لـضـمـان الـثـقـة الـمـطـلـقـة بـيـنـنـا وبـيـنـكـم ✦ خـصـم حـصـري 15% لـعـمـلاء تـيـك تـوك، سـناب شـات، وإنـسـتـقـرام ✦ اتـرك تـقـيـيـمـاً لـلـمـوقـع واحـصـل عـلـى مـكـافـأة فـوريـة ✦
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">BAREEQ <span>PREMIUM</span></div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html" class="active">خدماتنا</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 id="pageTitle">خدماتنا المتكاملة</h1>
+            <p id="pageDesc">حلول شاملة ومتكاملة للعناية بالمباني والنقل اللوجستي</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-header">
+            <h2 id="servicesTitle">أركان الخدمات الفاخرة</h2>
+            <p id="servicesSub">PREMIUM SERVICE SUITES</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="card" onclick="location.href='cleaning.html'" style="cursor:pointer;">
+                <span class="badge" id="b1">شامل ومفصّل</span>
+                <h3 id="s1Title">✨ ركن النظافة والتعقيم الفاخر</h3>
+                <p id="s1Desc">بروتوكولات تطهير وجلي مخصصة لكل بيئة سكنية أو تجارية لضمان عودة الأسطح والمباني للحالة الصفرية البرّاقة.</p>
+                <ul class="card-details" id="s1Details">
+                    <li><strong>الفلل والقصور:</strong> تلميع وجلي الرخام بالألماس، غسيل السجاد والستائر بالبخار الحار والتعطير الفاخر.</li>
+                    <li><strong>المنازل والشقق:</strong> تنظيف شامل للمطابخ والحمامات بمواد طبية، وجلي النوافذ والأسطح الزجاجية.</li>
+                    <li><strong>المكاتب والشركات:</strong> تلميع الواجهات الزجاجية، العناية بالأرضيات الخشبية والموكيت، وتطهير غرف الاجتماعات.</li>
+                    <li><strong>المستودعات والمخازن:</strong> غسيل وإزالة الزيوت من الأرضيات الخرسانية، تنظيف الأسقف وخطوط الإنتاج.</li>
+                </ul>
+                <a href="cleaning.html" class="btn-gold-trigger" style="display:block; text-align:center; margin-top:20px;">اعرف المزيد</a>
+            </div>
+
+            <div class="card" onclick="location.href='moving.html'" style="cursor:pointer;">
+                <span class="badge" id="b2">الفئة النخبوية</span>
+                <h3 id="s2Title">📦 نقل العفش والتوصيل اللوجستي</h3>
+                <p id="s2Desc">أمان مطلق ونقل هندسي للأثاث والمقتنيات الثمينة داخل مدن ومحافظات المملكة بأعلى حماية ميكانيكية.</p>
+                <ul class="card-details" id="s2Details">
+                    <li><strong>الفك والتركيب:</strong> فك وتركيب غرف النوم والمطابخ المعقدة وشاشات العرض بواسطة نجارين محترفين.</li>
+                    <li><strong>التغليف الفاخر:</strong> تغليف خماسي الطبقات بالرولات الفقاعية والكرتون المقوى لحماية التحف والزجاج.</li>
+                    <li><strong>التحميل والتنزيل:</strong> طاقم فني مدرب على نقل الأوزان الثقيلة وحماية الحوائط والأرضيات من أي خدوش.</li>
+                    <li><strong>الأسطول الآمن:</strong> شاحنات دينا مغلقة ومبطنة بالكامل لحماية الأثاث من تقلبات الطقس والحرارة والمطر.</li>
+                </ul>
+                <a href="moving.html" class="btn-gold-trigger" style="display:block; text-align:center; margin-top:20px;">اعرف المزيد</a>
+            </div>
+
+            <div class="card" onclick="location.href='ac.html'" style="cursor:pointer;">
+                <span class="badge" id="b3">الأكثر طلباً</span>
+                <h3 id="s3Title">❄️ غسيل وتعقيم المكيفات المتقدم</h3>
+                <p id="s3Desc">تطهير جراحي كامل لجميع وحدات وأنظمة التكييف لزيادة التبريد وتوفير استهلاك الطاقة الكهربائية.</p>
+                <ul class="card-details" id="s3Details">
+                    <li>غسيل بمضخات الضغط العالي مع استخدام غطاء العزل لمنع تسريب المياه نهائياً.</li>
+                    <li>تطهير شامل لملفات التبريد والفلاتر ومجاري الهواء من الفطريات ومسببات الحساسية.</li>
+                    <li>فحص مجاني ومباشر لضغط الفريون وخطوط التصريف مع كل عملية غسيل.</li>
+                </ul>
+                <a href="ac.html" class="btn-gold-trigger" style="display:block; text-align:center; margin-top:20px;">اعرف المزيد</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="background: var(--slate); margin-top: 40px; padding: 60px;">
+        <div class="section-header">
+            <h2 id="whyTitle">لماذا تختار بريق؟</h2>
+            <p id="whySub">WHY CHOOSE BAREEQ</p>
+        </div>
+        <div class="services-grid">
+            <div class="card">
+                <h3 id="why1Title">فريق متخصص</h3>
+                <p id="why1Desc">أكثر من 150 فنياً مدربين على أعلى المعايير الدولية للسلامة والجودة، مع خبرة تزيد عن 30 عاماً في المجال.</p>
+            </div>
+            <div class="card">
+                <h3 id="why2Title">معدات حديثة</h3>
+                <p id="why2Desc">نستخدم أحدث المعدات والتقنيات العالمية لضمان تقديم خدمة ممتازة وتقليل الوقت المطلوب.</p>
+            </div>
+            <div class="card">
+                <h3 id="why3Title">ضمان شامل</h3>
+                <p id="why3Desc">نقدم ضماناً شاملاً على جميع خدماتنا لرضا عملائنا الكامل، مع خدمة عملاء متاحة على مدار الساعة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="book">
+        <div class="container">
+            <div class="form-box">
+                <h2 style="text-align:center; margin-bottom:10px;" id="formTitle">احجز خدمتك الآن</h2>
+                <p style="text-align:center; color: var(--gray); font-size:14px; margin-bottom:30px;" id="formDesc">اختر الخدمة المناسبة وسنتواصل معك فوراً لتأكيد الموعد.</p>
+                
+                <div class="form-group">
+                    <label id="l1">الاسم الكريم</label>
+                    <input type="text" placeholder="اسم العميل" required>
+                </div>
+                <div class="form-group">
+                    <label id="l2">رقم الجوال</label>
+                    <input type="tel" placeholder="05XXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label id="l3">نوع الخدمة المطلوبة</label>
+                    <select required>
+                        <option value="cleaning">✨ ركن النظافة والتعقيم الفاخر</option>
+                        <option value="moving">📦 نقل عفش وتوصيل شامل</option>
+                        <option value="ac">❄️ غسيل وتعقيم مكيفات متقدم</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>الرسالة (اختياري)</label>
+                    <textarea placeholder="اكتب تفاصيل إضافية عن خدمتك المطلوبة..."></textarea>
+                </div>
+                
+                <button type="button" class="btn-gold-trigger" style="width:100%; font-size:16px; border:none; cursor:pointer;" onclick="submitServiceRequest()">إرسال الطلب</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding:0;">
+            <div class="logo" style="margin-bottom:15px;">BAREEQ</div>
+            <p>إدارة العناية الشاملة والمقاولات الخدمية للقصور والمنشآت الفاخرة بالمملكة</p>
+            
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">من نحن</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="cleaning.html">النظافة</a>
+                <a href="moving.html">نقل العفش</a>
+                <a href="ac.html">المكيفات</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">الشروط والأحكام</a>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://tiktok.com/@alealamia_ksa" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <a href="https://www.snapchat.com/add/mbnabdullah3" target="_blank" rel="noopener noreferrer">Snapchat</a>
+                <a href="https://wa.me/966541066236" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
+            </div>
+
+            <p style="font-size:12px; color: #444; margin-top:30px;">© 2026 Bareeq Luxury Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="sticky-bar">
+        <a href="tel:+966541066236" class="sticky-btn btn-c">📞 اتصال مباشر</a>
+        <a href="https://wa.me/966541066236" class="sticky-btn btn-w">💬 واتساب سريع</a>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function submitServiceRequest() {
+            alert(currentLang === 'ar' ? "🎉 تم استلام طلبك بنجاح! سنتواصل معك خلال 24 ساعة." : "🎉 Your request has been received successfully! We will contact you within 24 hours.");
+        }
+
+        const data = {
+            ar: {
+                btn: "English",
+                title: "خدماتنا المتكاملة",
+                desc: "حلول شاملة ومتكاملة للعناية بالمباني والنقل اللوجستي",
+                sTitle: "أركان الخدمات الفاخرة", sSub: "PREMIUM SERVICE SUITES",
+                b1: "شامل ومفصّل", b2: "الفئة النخبوية", b3: "الأكثر طلباً",
+                s1T: "✨ ركن النظافة والتعقيم الفاخر",
+                s1D: "بروتوكولات تطهير وجلي مخصصة لكل بيئة سكنية أو تجارية لضمان عودة الأسطح والمباني للحالة الصفرية البرّاقة.",
+                s2T: "📦 نقل العفش والتوصيل اللوجستي",
+                s2D: "أمان مطلق ونقل هندسي للأثاث والمقتنيات الثمينة داخل مدن ومحافظات المملكة بأعلى حماية ميكانيكية.",
+                s3T: "❄️ غسيل وتعقيم المكيفات المتقدم",
+                s3D: "تطهير جراحي كامل لجميع وحدات وأنظمة التكييف لزيادة التبريد وتوفير استهلاك الطاقة الكهربائية.",
+                whyT: "لماذا تختار بريق؟", whyS: "WHY CHOOSE BAREEQ",
+                why1T: "فريق متخصص", why1D: "أكثر من 150 فنياً مدربين على أعلى المعايير الدولية للسلامة والجودة، مع خبرة تزيد عن 30 عاماً في المجال.",
+                why2T: "معدات حديثة", why2D: "نستخدم أحدث المعدات والتقنيات العالمية لضمان تقديم خدمة ممتازة وتقليل الوقت المطلوب.",
+                why3T: "ضمان شامل", why3D: "نقدم ضماناً شاملاً على جميع خدماتنا لرضا عملائنا الكامل، مع خدمة عملاء متاحة على مدار الساعة.",
+                fT: "احجز خدمتك الآن", fD: "اختر الخدمة المناسبة وسنتواصل معك فوراً لتأكيد الموعد.",
+                l1: "الاسم الكريم", l2: "رقم الجوال", l3: "نوع الخدمة المطلوبة",
+            },
+            en: {
+                btn: "العربية",
+                title: "Our Integrated Services",
+                desc: "Comprehensive solutions for building care and logistical transportation",
+                sTitle: "Premium Service Suites", sSub: "PREMIUM SERVICE SUITES",
+                b1: "COMPLETE SUITE", b2: "ELITE TIER", b3: "MOST REQUESTED",
+                s1T: "✨ Luxury Cleaning & Sterilization Suite",
+                s1D: "Specialized sterilization and polishing protocols for every residential or commercial environment to ensure buildings return to their pristine, gleaming state.",
+                s2T: "📦 Furniture Moving & Logistics",
+                s2D: "Absolute safety and engineered transportation of furniture and precious belongings within Saudi cities and provinces with maximum mechanical protection.",
+                s3T: "❄️ Advanced AC Cleaning & Sterilization",
+                s3D: "Complete surgical sterilization of all air conditioning units and systems to enhance cooling and reduce electricity consumption.",
+                whyT: "Why Choose Bareeq?", whyS: "WHY CHOOSE BAREEQ",
+                why1T: "Specialized Team", why1D: "More than 150 technicians trained on the highest international safety and quality standards, with over 30 years of experience in the field.",
+                why2T: "Modern Equipment", why2D: "We use the latest global equipment and technologies to ensure excellent service delivery and minimize required time.",
+                why3T: "Comprehensive Guarantee", why3D: "We provide a comprehensive guarantee on all our services for complete customer satisfaction, with customer service available around the clock.",
+                fT: "Book Your Service Now", fD: "Choose the appropriate service and we will contact you immediately to confirm the appointment.",
+                l1: "Full Name", l2: "Mobile Number", l3: "Service Type Required",
+            }
+        };
+
+        function toggleLanguage() {
+            const root = document.documentElement;
+            const body = document.body;
+            
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                root.setAttribute('dir', 'ltr');
+                root.setAttribute('lang', 'en');
+                body.classList.add('en-mode');
+            } else {
+                currentLang = 'ar';
+                root.setAttribute('dir', 'rtl');
+                root.setAttribute('lang', 'ar');
+                body.classList.remove('en-mode');
+            }
+
+            document.getElementById('langBtn').innerText = data[currentLang].btn;
+            document.getElementById('pageTitle').innerText = data[currentLang].title;
+            document.getElementById('pageDesc').innerText = data[currentLang].desc;
+            document.getElementById('servicesTitle').innerText = data[currentLang].sTitle;
+            document.getElementById('servicesSub').innerText = data[currentLang].sSub;
+            document.getElementById('b1').innerText = data[currentLang].b1;
+            document.getElementById('b2').innerText = data[currentLang].b2;
+            document.getElementById('b3').innerText = data[currentLang].b3;
+            document.getElementById('s1Title').innerText = data[currentLang].s1T;
+            document.getElementById('s1Desc').innerText = data[currentLang].s1D;
+            document.getElementById('s2Title').innerText = data[currentLang].s2T;
+            document.getElementById('s2Desc').innerText = data[currentLang].s2D;
+            document.getElementById('s3Title').innerText = data[currentLang].s3T;
+            document.getElementById('s3Desc').innerText = data[currentLang].s3D;
+            document.getElementById('whyTitle').innerText = data[currentLang].whyT;
+            document.getElementById('whySub').innerText = data[currentLang].whyS;
+            document.getElementById('why1Title').innerText = data[currentLang].why1T;
+            document.getElementById('why1Desc').innerText = data[currentLang].why1D;
+            document.getElementById('why2Title').innerText = data[currentLang].why2T;
+            document.getElementById('why2Desc').innerText = data[currentLang].why2D;
+            document.getElementById('why3Title').innerText = data[currentLang].why3T;
+            document.getElementById('why3Desc').innerText = data[currentLang].why3D;
+            document.getElementById('formTitle').innerText = data[currentLang].fT;
+            document.getElementById('formDesc').innerText = data[currentLang].fD;
+            document.getElementById('l1').innerText = data[currentLang].l1;
+            document.getElementById('l2').innerText = data[currentLang].l2;
+            document.getElementById('l3').innerText = data[currentLang].l3;
+        }
+    </script>
+</body>
+</html>

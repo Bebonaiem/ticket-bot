@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | بريق للخدمات الفاخرة</title>
+    <meta name="description" content="تواصل مع فريق بريق للحصول على استشارة مجانية أو حجز موعد. نحن متاحون على مدار الساعة لخدمتكم.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="promo-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                ✦ المـعـايـنـة فـي بـريـق مـجـانـيـة حـالـيـاً لـضـمـان الـثـقـة الـمـطـلـقـة بـيـنـنـا وبـيـنـكـم ✦ خـصـم حـصـري 15% لـعـمـلاء تـيـك تـوك، سـناب شـات، وإنـسـتـقـرام ✦ اتـرك تـقـيـيـمـاً لـلـمـوقـع واحـصـل عـلـى مـكـافـأة فـوريـة ✦
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">BAREEQ <span>PREMIUM</span></div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html" class="active">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 id="pageTitle">تواصل معنا</h1>
+            <p id="pageDesc">نحن هنا لمساعدتك. تواصل معنا بأي طريقة تفضلها</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h2 style="margin-bottom:30px; color:var(--gold);" id="formTitle">أرسل لنا رسالة</h2>
+                <form onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <label id="l1">الاسم الكريم</label>
+                        <input type="text" placeholder="اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="l2">البريد الإلكتروني</label>
+                        <input type="email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="l3">رقم الجوال</label>
+                        <input type="tel" placeholder="05XXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label id="l4">نوع الخدمة</label>
+                        <select>
+                            <option value="cleaning">النظافة والتعقيم</option>
+                            <option value="moving">نقل العفش</option>
+                            <option value="ac">المكيفات</option>
+                            <option value="other">استفسار عام</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="l5">رسالتك</label>
+                        <textarea placeholder="اكتب رسالتك هنا..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold-trigger" style="width:100%; border:none; cursor:pointer;" id="submitBtn">إرسال الرسالة</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3 id="phoneTitle">الهاتف المباشر</h3>
+                    <p id="phoneDesc">متاحون على مدار الساعة لخدمتكم</p>
+                    <a href="tel:+966541066236">📞 0541066236</a>
+                </div>
+                <div class="info-card">
+                    <h3 id="whatsappTitle">الواتساب الفوري</h3>
+                    <p id="whatsappDesc">راسلنا الآن واحصل على رد سريع</p>
+                    <a href="https://wa.me/966541066236" target="_blank">💬 ابدأ المحادثة</a>
+                </div>
+                <div class="info-card">
+                    <h3 id="emailTitle">البريد الإلكتروني</h3>
+                    <p id="emailDesc">للاستفسارات الرسمية والتعاون</p>
+                    <a href="mailto:info@bareeq.sa">📧 info@bareeq.sa</a>
+                </div>
+                <div class="info-card">
+                    <h3 id="hoursTitle">ساعات العمل</h3>
+                    <p id="hoursDesc">السبت إلى الخميس: 8 صباحاً - 10 مساءً<br>الجمعة: 4 عصراً - 10 مساءً</p>
+                </div>
+                <div class="info-card">
+                    <h3 id="socialTitle">تابعنا على السوشيال ميديا</h3>
+                    <div class="footer-socials" style="margin-top:15px;">
+                        <a href="https://tiktok.com/@alealamia_ksa" target="_blank">TikTok</a>
+                        <a href="https://www.snapchat.com/add/mbnabdullah3" target="_blank">Snapchat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header" style="margin-bottom: 35px;">
+                <h2 style="font-size: 32px; margin-bottom: 10px;" id="mapTitle">مقرنا الرئيسي</h2>
+                <p style="color: var(--gold); font-size: 14px;" id="mapSub">المملكة العربية السعودية - الرياض</p>
+            </div>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14510.985651910688!2d46.72532!3d24.600987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f49673da60d%3A0x6bba8ff79cb4d93!2z2KfZhNi52LLZitiSubmshSwg2KfZhNix2YrYp9i2!5e0!3m2!1sar!2ssa!4v1717144000000!3m2!1sar!2ssa" width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding:0;">
+            <div class="logo" style="margin-bottom:15px;">BAREEQ</div>
+            <p>إدارة العناية الشاملة والمقاولات الخدمية للقصور والمنشآت الفاخرة بالمملكة</p>
+            
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">من نحن</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="cleaning.html">النظافة</a>
+                <a href="moving.html">نقل العفش</a>
+                <a href="ac.html">المكيفات</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">الشروط والأحكام</a>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://tiktok.com/@alealamia_ksa" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <a href="https://www.snapchat.com/add/mbnabdullah3" target="_blank" rel="noopener noreferrer">Snapchat</a>
+                <a href="https://wa.me/966541066236" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
+            </div>
+
+            <p style="font-size:12px; color: #444; margin-top:30px;">© 2026 Bareeq Luxury Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="sticky-bar">
+        <a href="tel:+966541066236" class="sticky-btn btn-c">📞 اتصال مباشر</a>
+        <a href="https://wa.me/966541066236" class="sticky-btn btn-w">💬 واتساب سريع</a>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            alert(currentLang === 'ar' ? "🎉 تم إرسال رسالتك بنجاح! سنتواصل معك في أقرب وقت ممكن." : "🎉 Your message has been sent successfully! We will contact you as soon as possible.");
+            event.target.reset();
+        }
+
+        const data = {
+            ar: {
+                btn: "English",
+                title: "تواصل معنا",
+                desc: "نحن هنا لمساعدتك. تواصل معنا بأي طريقة تفضلها",
+                formTitle: "أرسل لنا رسالة",
+                l1: "الاسم الكريم", l2: "البريد الإلكتروني", l3: "رقم الجوال", l4: "نوع الخدمة", l5: "رسالتك",
+                submitBtn: "إرسال الرسالة",
+                phoneTitle: "الهاتف المباشر", phoneDesc: "متاحون على مدار الساعة لخدمتكم",
+                whatsappTitle: "الواتساب الفوري", whatsappDesc: "راسلنا الآن واحصل على رد سريع",
+                emailTitle: "البريد الإلكتروني", emailDesc: "للاستفسارات الرسمية والتعاون",
+                hoursTitle: "ساعات العمل", hoursDesc: "السبت إلى الخميس: 8 صباحاً - 10 مساءً\nالجمعة: 4 عصراً - 10 مساءً",
+                socialTitle: "تابعنا على السوشيال ميديا",
+                mapTitle: "مقرنا الرئيسي", mapSub: "المملكة العربية السعودية - الرياض",
+            },
+            en: {
+                btn: "العربية",
+                title: "Contact Us",
+                desc: "We're here to help. Contact us in any way you prefer",
+                formTitle: "Send Us a Message",
+                l1: "Full Name", l2: "Email Address", l3: "Mobile Number", l4: "Service Type", l5: "Your Message",
+                submitBtn: "Send Message",
+                phoneTitle: "Direct Phone", phoneDesc: "Available around the clock for your service",
+                whatsappTitle: "Instant WhatsApp", whatsappDesc: "Message us now for a quick response",
+                emailTitle: "Email", emailDesc: "For official inquiries and collaboration",
+                hoursTitle: "Working Hours", hoursDesc: "Saturday to Thursday: 8 AM - 10 PM\nFriday: 4 PM - 10 PM",
+                socialTitle: "Follow Us on Social Media",
+                mapTitle: "Our Headquarters", mapSub: "Kingdom of Saudi Arabia - Riyadh",
+            }
+        };
+
+        function toggleLanguage() {
+            const root = document.documentElement;
+            const body = document.body;
+            
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                root.setAttribute('dir', 'ltr');
+                root.setAttribute('lang', 'en');
+                body.classList.add('en-mode');
+            } else {
+                currentLang = 'ar';
+                root.setAttribute('dir', 'rtl');
+                root.setAttribute('lang', 'ar');
+                body.classList.remove('en-mode');
+            }
+
+            document.getElementById('langBtn').innerText = data[currentLang].btn;
+            document.getElementById('pageTitle').innerText = data[currentLang].title;
+            document.getElementById('pageDesc').innerText = data[currentLang].desc;
+            document.getElementById('formTitle').innerText = data[currentLang].formTitle;
+            document.getElementById('l1').innerText = data[currentLang].l1;
+            document.getElementById('l2').innerText = data[currentLang].l2;
+            document.getElementById('l3').innerText = data[currentLang].l3;
+            document.getElementById('l4').innerText = data[currentLang].l4;
+            document.getElementById('l5').innerText = data[currentLang].l5;
+            document.getElementById('submitBtn').innerText = data[currentLang].submitBtn;
+            document.getElementById('phoneTitle').innerText = data[currentLang].phoneTitle;
+            document.getElementById('phoneDesc').innerText = data[currentLang].phoneDesc;
+            document.getElementById('whatsappTitle').innerText = data[currentLang].whatsappTitle;
+            document.getElementById('whatsappDesc').innerText = data[currentLang].whatsappDesc;
+            document.getElementById('emailTitle').innerText = data[currentLang].emailTitle;
+            document.getElementById('emailDesc').innerText = data[currentLang].emailDesc;
+            document.getElementById('hoursTitle').innerText = data[currentLang].hoursTitle;
+            document.getElementById('hoursDesc').innerText = data[currentLang].hoursDesc;
+            document.getElementById('socialTitle').innerText = data[currentLang].socialTitle;
+            document.getElementById('mapTitle').innerText = data[currentLang].mapTitle;
+            document.getElementById('mapSub').innerText = data[currentLang].mapSub;
+        }
+    </script>
+</body>
+</html>

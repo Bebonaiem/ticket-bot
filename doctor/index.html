@@ -9,201 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --charcoal: #090A0B;
-            --slate: #131517;
-            --gold: #D4AF37;
-            --gold-hover: #F3E5AB;
-            --white: #FFFFFF;
-            --gray: #A0A5B5;
-            --success: #25D366;
-            --font-ar: 'Cairo', sans-serif;
-            --font-en: 'Montserrat', sans-serif;
-            --font-title-en: 'Cinzel', serif;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-
-        body {
-            background-color: var(--charcoal);
-            color: var(--white);
-            font-family: var(--font-ar);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        body.en-mode { font-family: var(--font-en); }
-        body.en-mode h1, body.en-mode h2, body.en-mode h3 { font-family: var(--font-title-en); }
-
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
-
-        /* شريط الإعلانات الذهبي المتحرك */
-        .promo-ticker {
-            background: linear-gradient(90deg, #B8932E, var(--gold), #B8932E);
-            color: #000; font-weight: 700; font-size: 13px; padding: 8px 0;
-            position: fixed; width: 100%; top: 0; z-index: 1100; overflow: hidden;
-            box-shadow: 0 2px 15px rgba(212,175,55,0.3);
-        }
-        .ticker-wrap { display: flex; width: 100%; }
-        .ticker-move {
-            display: inline-block; white-space: nowrap; padding-left: 100%;
-            animation: ticker 25s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-
-        /* HEADER */
-        header {
-            background-color: rgba(9, 10, 11, 0.95);
-            border-bottom: 1px solid rgba(214, 175, 55, 0.15);
-            position: fixed; width: 100%; top: 35px; z-index: 1000; backdrop-filter: blur(10px);
-        }
-        .nav-container {
-            width: 90%; max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center; padding: 15px 0;
-        }
-        .logo { font-size: 26px; font-weight: 700; color: var(--gold); font-family: var(--font-title-en) !important; letter-spacing: 1px; }
-        
-        .header-controls { display: flex; align-items: center; gap: 15px; }
-        .lang-btn {
-            background: none; border: 1px solid var(--gold); color: var(--gold);
-            padding: 8px 16px; cursor: pointer; font-weight: 600; font-family: var(--font-en);
-        }
-        .lang-btn:hover { background-color: var(--gold); color: #000; box-shadow: 0 0 15px rgba(212,175,55,0.4); }
-
-        /* HERO */
-        .hero {
-            padding: 240px 0 140px 0;
-            background: linear-gradient(to bottom, rgba(9,10,11,0.65), var(--charcoal)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            text-align: center;
-        }
-        .hero h1 { font-size: 52px; margin-bottom: 25px; font-weight: 700; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
-        .hero p { font-size: 20px; color: var(--gray); max-width: 850px; margin: 0 auto 40px auto; }
-        
-        .btn-gold-trigger {
-            display: inline-block; background: linear-gradient(135deg, var(--gold), #B8932E); color: #000;
-            padding: 16px 40px; font-weight: 700; font-size: 16px; text-decoration: none; border-radius: 0;
-            box-shadow: 0 4px 20px rgba(212,175,55,0.3); animation: pulse 2s infinite;
-            border: none; cursor: pointer;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(212,175,55, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(212,175,55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212,175,55, 0); }
-        }
-
-        /* SERVICES GRID */
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 40px; margin-bottom: 12px; }
-        .section-header p { color: var(--gold); font-size: 14px; letter-spacing: 3px; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 35px; }
-        
-        .card { 
-            background-color: var(--slate); border: 1px solid rgba(212,175,55,0.05); 
-            padding: 45px; position: relative; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .card:hover { 
-            border-color: var(--gold); 
-            transform: translateY(-10px) scale(1.02); 
-            box-shadow: 0 15px 40px rgba(212,175,55,0.15);
-        }
-        
-        .card .badge { position: absolute; top: 20px; left: 20px; font-size: 11px; background: rgba(212,175,55,0.15); color: var(--gold); padding: 5px 14px; font-weight: bold; border: 1px solid rgba(212,175,55,0.3); }
-        body.en-mode .card .badge { left: auto; right: 20px; }
-        
-        .card h3 { font-size: 24px; margin-bottom: 20px; color: var(--white); border-bottom: 1px solid rgba(212,175,55,0.15); padding-bottom: 15px; }
-        .card p { color: var(--gray); font-size: 14px; margin-bottom: 25px; }
-        
-        .card-details { list-style: none; }
-        .card-details li { font-size: 14px; color: #d0d4e0; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
-        .card-details li::before { content: "✦"; color: var(--gold); font-weight: bold; }
-
-        /* ركن معرض الأعمال الفاخر */
-        .gallery-section { background-color: var(--slate); border-top: 1px solid rgba(212,175,55,0.1); }
-        .gallery-filters { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
-        .filter-btn { background: none; border: 1px solid rgba(212,175,55,0.3); color: var(--gray); padding: 10px 22px; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 600; }
-        .filter-btn.active, .filter-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 4px 15px rgba(212,175,55,0.3); }
-        
-        /* لوحة التحكم ورفع الصور المباشرة من الجوال */
-        .upload-admin-box { max-width: 500px; margin: 0 auto 40px auto; background: var(--charcoal); border: 1px dashed var(--gold); padding: 20px; text-align: center; }
-        .upload-label { background: var(--gold); color: #000; padding: 8px 20px; font-weight: 700; cursor: pointer; display: inline-block; margin-top: 10px; }
-
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .gallery-item { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.4); display: block; }
-        .gallery-item:hover img, .gallery-item:hover video { transform: scale(1.06); }
-        .gallery-item img, .gallery-item video { width: 100%; height: 230px; object-fit: cover; display: block; transition: transform 0.4s ease; }
-        .gallery-info { padding: 15px; background: rgba(19, 21, 23, 0.9); border-top: 1px solid rgba(212,175,55,0.1); }
-        .gallery-info h4 { font-size: 16px; color: var(--white); margin-bottom: 5px; }
-        .gallery-info span { font-size: 12px; color: var(--gold); font-weight: 600; }
-
-        /* ركن العروض الحصرية */
-        .offers-section { background-color: #0d0f11; border-top: 1px solid rgba(212,175,55,0.1); }
-        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .offer-card { background: var(--slate); border: 1px dashed rgba(212,175,55,0.3); padding: 30px; text-align: center; position: relative; }
-        .offer-price { font-size: 32px; color: var(--gold); font-weight: bold; margin: 15px 0; }
-        .countdown-timer { font-family: var(--font-en); font-size: 18px; color: #ff4d4d; font-weight: bold; margin-top: 10px; background: rgba(255,77,77,0.1); padding: 5px; display: inline-block; }
-
-        /* ركن السحب والجوائز */
-        .lottery-section { background: linear-gradient(180deg, var(--charcoal), #16191c); border-top: 1px solid rgba(212,175,55,0.1); position: relative; }
-        .lottery-box { max-width: 600px; margin: 0 auto; text-align: center; background: var(--slate); padding: 40px; border: 2px solid var(--gold); box-shadow: 0 15px 40px rgba(212,175,55,0.1); }
-        
-        .wheel-container { position: relative; width: 220px; height: 220px; margin: 30px auto; }
-        .wheel { 
-            width: 100%; height: 100%; border-radius: 50%; border: 8px solid var(--gold); 
-            background: conic-gradient(var(--charcoal) 0deg 120deg, #1c1f22 120deg 240deg, #2a2e33 240deg 360deg);
-            position: relative; transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
-        }
-        .wheel-pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 25px solid #ff4d4d; z-index: 10; }
-
-        /* BOOKING FORM & GEOGRAPHY SELECTORS */
-        .booking-section { background-color: var(--slate); border-top: 1px solid rgba(212,175,55,0.1); }
-        .form-box, .checkout-box { max-width: 750px; margin: 0 auto; background-color: var(--charcoal); padding: 55px; border: 1px solid rgba(212,175,55,0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        .checkout-box { display: none; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .form-group { margin-bottom: 24px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 0.5px; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 16px; background-color: var(--slate); border: 1px solid rgba(255,255,255,0.08); color: var(--white); font-family: inherit; font-size: 14px;
-        }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(212,175,55,0.2); }
-
-        /* CHECKOUT GATEWAY */
-        .payment-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 25px 0; }
-        .pay-method {
-            background-color: var(--slate); border: 2px solid rgba(255,255,255,0.05); padding: 18px; text-align: center; cursor: pointer; font-weight: 700; font-size: 14px;
-        }
-        .pay-method.active { border-color: var(--gold); background: rgba(212,175,55,0.08); color: var(--gold); box-shadow: 0 5px 15px rgba(212,175,55,0.1); }
-        .cc-details { background: var(--slate); padding: 25px; margin-bottom: 20px; display: none; border: 1px solid rgba(255,255,255,0.05); }
-
-        /* MAP SECTION STYLING */
-        .map-section { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212,175,55,0.1); }
-        .map-wrapper { width: 100%; border: 1px solid rgba(212,175,55,0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.6); overflow: hidden; line-height: 0; }
-
-        /* FOOTER */
-        footer { background-color: #050607; padding: 70px 0 110px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); }
-        .footer-socials { margin: 30px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .footer-socials a { color: var(--white); text-decoration: none; font-size: 14px; background: var(--slate); padding: 12px 24px; border: 1px solid rgba(212,175,55,0.2); font-weight: 600; }
-        .footer-socials a:hover { background-color: var(--gold); color: #000; box-shadow: 0 5px 20px rgba(212,175,55,0.4); }
-
-        /* STICKY BOTTOM BAR */
-        .sticky-bar { position: fixed; bottom: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; z-index: 2000; }
-        .sticky-btn { text-align: center; padding: 18px; font-weight: 700; text-decoration: none; font-size: 15px; }
-        .btn-c { background-color: #17191c; color: #fff; border-top: 2px solid var(--gold); }
-        .btn-w { background-color: var(--success); color: #000; }
-
-        @media(max-width:768px) {
-            .hero h1 { font-size: 34px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .form-box, .checkout-box { padding: 35px 20px; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -218,7 +24,16 @@
     <header>
         <div class="nav-container">
             <div class="logo">BAREEQ <span>PREMIUM</span></div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+            </nav>
             <div class="header-controls">
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
                 <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
             </div>
         </div>
@@ -483,6 +298,18 @@
             <div class="logo" style="margin-bottom:15px;">BAREEQ</div>
             <p id="footerText">إدارة العناية الشاملة والمقاولات الخدمية للقصور والمنشآت الفاخرة بالمملكة</p>
             
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">من نحن</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="cleaning.html">النظافة</a>
+                <a href="moving.html">نقل العفش</a>
+                <a href="ac.html">المكيفات</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">الشروط والأحكام</a>
+            </div>
+
             <div class="footer-socials">
                 <a href="https://tiktok.com/@alealamia_ksa" target="_blank" rel="noopener noreferrer">TikTok</a>
                 <a href="https://www.snapchat.com/add/mbnabdullah3" target="_blank" rel="noopener noreferrer">Snapchat</a>
@@ -501,6 +328,10 @@
     <script>
         let currentLang = 'ar';
         let selectedPayment = 'mada';
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
 
         // روابط خرائط حقيقية ومعتمدة (خرائط موثقة بنظام الحماية HTTPS والرياض مضبوطة على إحداثياتك العزيزية)
         const regionalMaps = {
