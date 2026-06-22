@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>باقات النخبة | بريق لباقات الخدمات الفاخرة</title>
-    <meta name="description" content="اختر من بين باقاتنا الفاخرة: الباقة الملكية للقصور، الباقة الماسية للتنظيف، الباقة الذهبية للنقل">
+    <title>سياسة الخصوصية | بريق لباقات الخدمات الفاخرة</title>
+    <meta name="description" content="سياسة الخصوصية وشروط الاستخدام لمنصة بريق للخدمات المنزلية الفاخرة">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +34,6 @@
             overflow-x: hidden;
         }
 
-        body.en-mode { font-family: var(--font-en); }
-        body.en-mode h1, body.en-mode h2, body.en-mode h3 { font-family: var(--font-title-en); }
-
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
 
         /* شريط الإعلانات */
@@ -51,16 +48,9 @@
             display: inline-block; white-space: nowrap;
             animation: ticker 20s linear infinite;
         }
-        body.en-mode .ticker-move {
-            animation: ticker-en 20s linear infinite;
-        }
         @keyframes ticker {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
-        }
-        @keyframes ticker-en {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
         }
 
         /* HEADER */
@@ -82,13 +72,6 @@
         }
         nav a:hover { color: var(--gold); }
 
-        .header-controls { display: flex; align-items: center; gap: 15px; }
-        .lang-btn {
-            background: none; border: 1px solid var(--gold); color: var(--gold);
-            padding: 8px 16px; cursor: pointer; font-weight: 600; font-family: var(--font-en);
-        }
-        .lang-btn:hover { background-color: var(--gold); color: #000; box-shadow: 0 0 15px rgba(212,175,55,0.4); }
-
         .menu-toggle {
             display: none; background: none; border: none; cursor: pointer;
             width: 30px; height: 24px; position: relative; z-index: 1001;
@@ -104,38 +87,51 @@
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
 
-        /* PACKAGES */
-        .packages { padding-top: 150px; background-color: var(--charcoal); }
-        .packages .container { text-align: center; }
-        .packages h2 {
-            font-size: 32px; color: var(--gold); margin-bottom: 10px;
-            font-family: var(--font-title-en);
-        }
-        .packages .subtitle { color: var(--gray); margin-bottom: 50px; }
-
-        .packages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; text-align: center;
-        }
-
-        .package-card {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 15px; padding: 35px 30px; position: relative; overflow: hidden;
+        /* PRIVACY HERO */
+        .privacy-hero {
+            padding: 150px 0 80px 0;
+            background: radial-gradient(circle at center, rgba(212,175,55,0.08) 0%, transparent 70%);
             text-align: center;
         }
-        .package-card:hover { border-color: var(--gold); box-shadow: 0 0 40px rgba(212,175,55,0.1); }
-        .package-card.royal { border-top: 4px solid var(--gold); }
-        .package-card.diamond { border-top: 4px solid #E0E0E0; }
-        .package-card.golden { border-top: 4px solid #C9A84C; }
-
-        .package-card h3 { color: var(--white); font-size: 24px; margin-bottom: 10px; }
-        .package-card .en-name { color: var(--gray); font-size: 14px; margin-bottom: 20px; font-family: var(--font-title-en); }
-
-        .features-list { list-style: none; text-align: center; margin-bottom: 30px; }
-        .features-list li {
-            padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--gray);
+        .privacy-hero h1 {
+            font-size: 48px; font-weight: 700; color: var(--gold); margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(212,175,55,0.3);
         }
-        .features-list li::before { content: "✓ "; color: var(--gold); font-weight: bold; }
+        .privacy-hero p {
+            font-size: 18px; color: var(--gray); max-width: 700px; margin: 0 auto;
+        }
+
+        /* PRIVACY CONTENT */
+        .privacy-content { background-color: var(--slate); }
+        .privacy-content .container { max-width: 900px; }
+        
+        .privacy-section {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 15px; padding: 35px 30px; margin-bottom: 25px;
+        }
+        .privacy-section:hover { border-color: var(--gold); box-shadow: 0 0 40px rgba(212,175,55,0.1); }
+
+        .privacy-section h2 {
+            color: var(--gold); font-size: 24px; margin-bottom: 20px;
+            border-bottom: 2px solid rgba(212,175,55,0.3); padding-bottom: 10px;
+        }
+        .privacy-section h3 {
+            color: var(--white); font-size: 18px; margin: 20px 0 10px 0;
+        }
+        .privacy-section p, .privacy-section li {
+            color: var(--gray); font-size: 16px; line-height: 1.8;
+        }
+        .privacy-section ul {
+            margin: 15px 0; padding-right: 20px;
+        }
+        .privacy-section li {
+            margin-bottom: 10px; padding-right: 10px;
+        }
+        .privacy-section li::marker { color: var(--gold); }
+
+        .highlight {
+            color: var(--gold); font-weight: 600;
+        }
 
         /* BUTTONS */
         .btn-primary {
@@ -186,16 +182,13 @@
             }
             nav.active { display: flex; }
             nav a { margin: 10px 0 !important; font-size: 15px; padding: 8px 20px; }
-            .nav-lang { margin-top: 5px; }
             .logo { font-size: 22px; order: 0; flex: 1; text-align: right; }
-            .header-controls { display: none; }
-            .packages { padding-top: 120px; }
-            .packages h2 { font-size: 22px; }
-            .packages .subtitle { font-size: 13px; margin-bottom: 30px; }
-            .packages-grid { grid-template-columns: 1fr; gap: 20px; }
-            .package-card { padding: 25px 20px; }
-            .package-card h3 { font-size: 20px; }
-            .features-list li { font-size: 14px; padding: 6px 0; }
+            .privacy-hero { padding: 100px 0 60px 0; }
+            .privacy-hero h1 { font-size: 30px; line-height: 1.4; }
+            .privacy-hero p { font-size: 15px; line-height: 1.8; }
+            .privacy-section { padding: 25px 20px; }
+            .privacy-section h2 { font-size: 20px; }
+            .privacy-section p, .privacy-section li { font-size: 14px; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .whatsapp-fab { width: 55px; height: 55px; bottom: 20px; left: 20px; }
             .whatsapp-fab svg { width: 28px; height: 28px; }
@@ -227,63 +220,140 @@
                 <a href="about.html">عن بريق</a>
                 <a href="privacy.html">سياسة الخصوصية</a>
             </nav>
-            <div class="header-controls">
-                <button class="lang-btn" onclick="toggleLang()">EN</button>
-            </div>
         </div>
     </header>
 
-    <!-- PACKAGES -->
-    <section class="packages">
+    <!-- PRIVACY HERO -->
+    <section class="privacy-hero">
         <div class="container">
-            <h2>باقات النخبة</h2>
-            <p class="subtitle">ثلاث باقات فاخرة صُممت لتلبية أعلى معايير الجودة والرفاهية</p>
-            
-            <div class="packages-grid">
-                <!-- الباقة الملكية -->
-                <div class="package-card royal">
-                    <h3>الباقة الملكية الشاملة</h3>
-                    <p class="en-name">Royal Suite</p>
-                    <p style="color:var(--gray);margin-bottom:20px;">رعاية القصور والفلل الفاخرة - خدمة متكاملة تشمل التنظيف والصيانة والcare الشامل</p>
-                    <ul class="features-list">
-                        <li>تنظيف شامل للقصور والفيلات الكبيرة</li>
-                        <li>عناية بالحدائق والمواقع الخارجية</li>
-                        <li>خدمة ضيافة VIP للمناسبات</li>
-                        <li>فريق متخصص على مدار الساعة</li>
-                        <li>مواد تنظيف فاخرة ومعتمدة</li>
-                    </ul>
-                    <button class="btn-primary" onclick="selectPackage('royal')">احجز المعاينة المجانية</button>
-                </div>
+            <h1>سياسة الخصوصية</h1>
+            <p>آخر تحديث: يناير 2026</p>
+        </div>
+    </section>
 
-                <!-- الباقة الماسية -->
-                <div class="package-card diamond">
-                    <h3>الباقة الماسية للتنظيف والتعقيم</h3>
-                    <p class="en-name">Diamond Suite</p>
-                    <p style="color:var(--gray);margin-bottom:20px;">جلي الرخام وتعقيم الخزانات والمكيفات بأحدث المعدات العالمية</p>
-                    <ul class="features-list">
-                        <li>جلي وبريق الرخام الطبيعي والصناعي</li>
-                        <li>تعقيم وتطهير خزانات المياه</li>
-                        <li>تنظيف وتعقيم المكيفات المركزية</li>
-                        <li>تنظيف السجاد والمفروشات</li>
-                        <li>ضمان على جميع الخدمات</li>
-                    </ul>
-                    <button class="btn-primary" onclick="selectPackage('diamond')">احجز المعاينة المجانية</button>
-                </div>
+    <!-- PRIVACY CONTENT -->
+    <section class="privacy-content">
+        <div class="container">
+            <div class="privacy-section">
+                <h2>1. مقدمة</h2>
+                <p>
+                    مرحبًا بك في منصة <span class="highlight">بريق</span> ("المنصة"، "نحن"، "شركتنا"). نحن ملتزمون بحماية خصوصيتك وبياناتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك عند استخدام خدماتنا.
+                </p>
+                <p>
+                    باستخدامك لخدماتنا، فإنك توافق على جمع واستخدام المعلومات وفقًا لهذه السياسة. إذا لم توافق على هذه السياسة، يرجى عدم استخدام خدماتنا.
+                </p>
+            </div>
 
-                <!-- الباقة الذهبية -->
-                <div class="package-card golden">
-                    <h3>الباقة الذهبية للنقل والتغليف</h3>
-                    <p class="en-name">Golden Moving Suite</p>
-                    <p style="color:var(--gray);margin-bottom:20px;">الفك والتركيب وشاحنات الدينا المبطنة - نقل آمن ومحترف</p>
-                    <ul class="features-list">
-                        <li>فك وتركيب الأثاث والنجف</li>
-                        <li>تغليف فاخر بأجود المواد</li>
-                        <li>شاحنات دينا مبطنة ومجهزة</li>
-                        <li>تأمين شامل على الممتلكات</li>
-                        <li>خدمة الترتيب في المنزل الجديد</li>
-                    </ul>
-                    <button class="btn-primary" onclick="selectPackage('golden')">احجز المعاينة المجانية</button>
-                </div>
+            <div class="privacy-section">
+                <h2>2. المعلومات التي نجمعها</h2>
+                <h3>2.1 المعلومات الشخصية</h3>
+                <ul>
+                    <li>الاسم الكامل</li>
+                    <li>رقم الجوال</li>
+                    <li>البريد الإلكتروني (إذا تم توفيره)</li>
+                    <li>المدينة والمنطقة</li>
+                    <li>العنوان (لمؤدي الخدمة)</li>
+                </ul>
+                <h3>2.2 معلومات الخدمة</h3>
+                <ul>
+                    <li>نوع الخدمة المطلوبة</li>
+                    <li>تفاصيل الطلب والملاحظات</li>
+                    <li>تواريخ ومواعيد الخدمات</li>
+                </ul>
+                <h3>2.3 المعلومات التقنية</h3>
+                <ul>
+                    <li>عنوان IP</li>
+                    <li>نوع المتصفح والجهاز</li>
+                    <li>بيانات الموقع الجغرافي (إذا تم التفويض)</li>
+                    <li>سجلات النشاط على المنصة</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>3. كيف نستخدم معلوماتك</h2>
+                <p>نستخدم المعلومات المجمعة للأغراض التالية:</p>
+                <ul>
+                    <li>معالجة وتنفيذ طلبات الخدمات</li>
+                    <li>التواصل معك لتأكيد المواعيد وتحديثات الخدمة</li>
+                    <li>تحسين تجربة المستخدم وتطوير خدماتنا</li>
+                    <li>إرسال إشعارات مهمة وتحديثات الخدمة</li>
+                    <li>الامتثال للالتزامات القانونية والتنظيمية</li>
+                    <li>منع الاحتيال وحماية أمن المنصة</li>
+                    <li>إرسال عروض وترويجات (بموافقتك المسبقة)</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>4. مشاركة المعلومات</h2>
+                <p>لا نبيع معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك في الحالات التالية فقط:</p>
+                <ul>
+                    <li><span class="highlight">مؤدي الخدمة:</span> لتمكينهم من تقديم الخدمة المطلوبة</li>
+                    <li><span class="highlight">الشركاء الموثوقون:</span> لدعم تشغيل المنصة والخدمات التقنية</li>
+                    <li><span class="highlight">الجهات الحكومية:</span> عند الطلب وفقًا للقانون</li>
+                    <li><span class="highlight">حماية الحقوق:</span> لحماية حقوقنا أو أمن مستخدمينا</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>5. حماية البيانات</h2>
+                <p>نتخذ إجراءات أمنية صارمة لحماية بياناتك الشخصية:</p>
+                <ul>
+                    <li>التشفير الكامل للبيانات أثناء النقل والتخزين</li>
+                    <li>أنظمة حماية متقدمة ضد الوصول غير المصرح به</li>
+                    <li>الوصول المحدود للمعلومات حسب الحاجة المهنية</li>
+                    <li>المراجعة الدورية لإجراءات الأمان</li>
+                </ul>
+                <p>
+                    مع ذلك، يجب عليك الحفاظ على سرية حسابك وعدم مشاركة بيانات الدخول مع أي طرف آخر.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>6. حقوقك</h2>
+                <p>لديك الحقوق التالية فيما يتعلق ببياناتك الشخصية:</p>
+                <ul>
+                    <li><span class="highlight">الحق في الوصول:</span> طلب نسخة من بياناتك الشخصية</li>
+                    <li><span class="highlight">الحق في التصحيح:</span> طلب تصحيح أي معلومات غير دقيقة</li>
+                    <li><span class="highlight">الحق في الحذف:</span> طلب حذف بياناتك الشخصية</li>
+                    <li><span class="highlight">الحق في الاعتراض:</span> الاعتراض على معالجة بياناتك</li>
+                    <li><span class="highlight">حق سحب الموافقة:</span> سحب موافقتك على معالجة البيانات في أي وقت</li>
+                </ul>
+                <p>
+                    لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر قنواتنا الرسمية.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>7. ملفات تعريف الارتباط (Cookies)</h2>
+                <p>
+                    نستخدم ملفات تعريف الارتباط وتقنيات التتبع المماثلة لتحسين تجربتك على منصتنا. يمكنك التحكم في إعدادات ملفات تعريف الارتباط من خلال متصفحك.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>8. خصوصية الأطفال</h2>
+                <p>
+                    خدماتنا غير مخصصة للأطفال تحت سن 18 عامًا. لا نجمع عمدًا معلومات شخصية من الأطفال. إذا اكتشفنا أننا جمعنا معلومات من طفل، سنحذفها فورًا.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>9. التغييرات على سياسة الخصوصية</h2>
+                <p>
+                    قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإشعارك بأي تغييرات جوهرية عبر البريد الإلكتروني أو من خلال إشعار على المنصة. يُنصح بمراجعة هذه السياسة بانتظام.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>10. التواص معنا</h2>
+                <p>
+                    إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية هذه، يرجى التواصل معنا:
+                </p>
+                <ul>
+                    <li>الهاتف: <span class="highlight">+966541066236</span></li>
+                    <li>البريد الإلكتروني: <span class="highlight">info@bareeq.sa</span></li>
+                    <li>الموقع: الرياض، المملكة العربية السعودية</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -328,10 +398,6 @@
         function toggleMenu() {
             document.querySelector('.menu-toggle').classList.toggle('active');
             document.querySelector('nav').classList.toggle('active');
-        }
-
-        function selectPackage(type) {
-            window.location.href = 'booking.html?package=' + type;
         }
     </script>
 </body>

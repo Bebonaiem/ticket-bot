@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>باقات النخبة | بريق لباقات الخدمات الفاخرة</title>
-    <meta name="description" content="اختر من بين باقاتنا الفاخرة: الباقة الملكية للقصور، الباقة الماسية للتنظيف، الباقة الذهبية للنقل">
+    <title>عن بريق | بريق لباقات الخدمات الفاخرة</title>
+    <meta name="description" content="تعرف على بريق - منصة النظافة واللوجستيات الفاخرة الأولى في المملكة العربية السعودية">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,38 +104,48 @@
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
 
-        /* PACKAGES */
-        .packages { padding-top: 150px; background-color: var(--charcoal); }
-        .packages .container { text-align: center; }
-        .packages h2 {
-            font-size: 32px; color: var(--gold); margin-bottom: 10px;
-            font-family: var(--font-title-en);
-        }
-        .packages .subtitle { color: var(--gray); margin-bottom: 50px; }
-
-        .packages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; text-align: center;
-        }
-
-        .package-card {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 15px; padding: 35px 30px; position: relative; overflow: hidden;
+        /* ABOUT */
+        .about-hero {
+            padding: 150px 0 80px 0;
+            background: radial-gradient(circle at center, rgba(212,175,55,0.08) 0%, transparent 70%);
             text-align: center;
         }
-        .package-card:hover { border-color: var(--gold); box-shadow: 0 0 40px rgba(212,175,55,0.1); }
-        .package-card.royal { border-top: 4px solid var(--gold); }
-        .package-card.diamond { border-top: 4px solid #E0E0E0; }
-        .package-card.golden { border-top: 4px solid #C9A84C; }
-
-        .package-card h3 { color: var(--white); font-size: 24px; margin-bottom: 10px; }
-        .package-card .en-name { color: var(--gray); font-size: 14px; margin-bottom: 20px; font-family: var(--font-title-en); }
-
-        .features-list { list-style: none; text-align: center; margin-bottom: 30px; }
-        .features-list li {
-            padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--gray);
+        .about-hero h1 {
+            font-size: 48px; font-weight: 700; color: var(--gold); margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(212,175,55,0.3);
         }
-        .features-list li::before { content: "✓ "; color: var(--gold); font-weight: bold; }
+        .about-hero p {
+            font-size: 18px; color: var(--gray); max-width: 700px; margin: 0 auto 30px auto;
+        }
+
+        /* ABOUT CONTENT */
+        .about-content {
+            background-color: var(--slate);
+        }
+        .about-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; margin-top: 40px;
+        }
+        .about-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 15px; padding: 35px 30px; text-align: center;
+        }
+        .about-card:hover { border-color: var(--gold); box-shadow: 0 0 40px rgba(212,175,55,0.1); }
+        .about-card h3 { color: var(--gold); font-size: 22px; margin-bottom: 15px; }
+        .about-card p { color: var(--gray); font-size: 16px; }
+
+        .stats {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px; margin-top: 60px; text-align: center;
+        }
+        .stat-item { padding: 30px; background: rgba(212,175,55,0.05); border-radius: 15px; }
+        .stat-number { font-size: 48px; font-weight: 700; color: var(--gold); font-family: var(--font-title-en); }
+        .stat-label { color: var(--gray); font-size: 16px; margin-top: 10px; }
+
+        /* MISSION SECTION */
+        .mission-section { text-align: center; }
+        .mission-section h2 { color: var(--gold); font-size: 32px; margin-bottom: 30px; }
+        .mission-section p { color: var(--gray); font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.8; }
 
         /* BUTTONS */
         .btn-primary {
@@ -189,13 +199,14 @@
             .nav-lang { margin-top: 5px; }
             .logo { font-size: 22px; order: 0; flex: 1; text-align: right; }
             .header-controls { display: none; }
-            .packages { padding-top: 120px; }
-            .packages h2 { font-size: 22px; }
-            .packages .subtitle { font-size: 13px; margin-bottom: 30px; }
-            .packages-grid { grid-template-columns: 1fr; gap: 20px; }
-            .package-card { padding: 25px 20px; }
-            .package-card h3 { font-size: 20px; }
-            .features-list li { font-size: 14px; padding: 6px 0; }
+            .about-hero { padding: 100px 0 60px 0; }
+            .about-hero h1 { font-size: 30px; line-height: 1.4; }
+            .about-hero p { font-size: 15px; line-height: 1.8; }
+            .about-grid { grid-template-columns: 1fr; gap: 20px; }
+            .stats { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .stat-number { font-size: 36px; }
+            .mission-section h2 { font-size: 22px; }
+            .mission-section p { font-size: 16px; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .whatsapp-fab { width: 55px; height: 55px; bottom: 20px; left: 20px; }
             .whatsapp-fab svg { width: 28px; height: 28px; }
@@ -233,57 +244,62 @@
         </div>
     </header>
 
-    <!-- PACKAGES -->
-    <section class="packages">
+    <!-- ABOUT HERO -->
+    <section class="about-hero">
         <div class="container">
-            <h2>باقات النخبة</h2>
-            <p class="subtitle">ثلاث باقات فاخرة صُممت لتلبية أعلى معايير الجودة والرفاهية</p>
-            
-            <div class="packages-grid">
-                <!-- الباقة الملكية -->
-                <div class="package-card royal">
-                    <h3>الباقة الملكية الشاملة</h3>
-                    <p class="en-name">Royal Suite</p>
-                    <p style="color:var(--gray);margin-bottom:20px;">رعاية القصور والفلل الفاخرة - خدمة متكاملة تشمل التنظيف والصيانة والcare الشامل</p>
-                    <ul class="features-list">
-                        <li>تنظيف شامل للقصور والفيلات الكبيرة</li>
-                        <li>عناية بالحدائق والمواقع الخارجية</li>
-                        <li>خدمة ضيافة VIP للمناسبات</li>
-                        <li>فريق متخصص على مدار الساعة</li>
-                        <li>مواد تنظيف فاخرة ومعتمدة</li>
-                    </ul>
-                    <button class="btn-primary" onclick="selectPackage('royal')">احجز المعاينة المجانية</button>
-                </div>
+            <h1>عن بريق</h1>
+            <p>منصة النظافة واللوجستيات الفاخرة الأولى في المملكة العربية السعودية</p>
+        </div>
+    </section>
 
-                <!-- الباقة الماسية -->
-                <div class="package-card diamond">
-                    <h3>الباقة الماسية للتنظيف والتعقيم</h3>
-                    <p class="en-name">Diamond Suite</p>
-                    <p style="color:var(--gray);margin-bottom:20px;">جلي الرخام وتعقيم الخزانات والمكيفات بأحدث المعدات العالمية</p>
-                    <ul class="features-list">
-                        <li>جلي وبريق الرخام الطبيعي والصناعي</li>
-                        <li>تعقيم وتطهير خزانات المياه</li>
-                        <li>تنظيف وتعقيم المكيفات المركزية</li>
-                        <li>تنظيف السجاد والمفروشات</li>
-                        <li>ضمان على جميع الخدمات</li>
-                    </ul>
-                    <button class="btn-primary" onclick="selectPackage('diamond')">احجز المعاينة المجانية</button>
+    <!-- ABOUT CONTENT -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون الخيار الأول في مجال الخدمات المنزلية الفاخرة في المملكة العربية السعودية والمنطقة العربية.</p>
                 </div>
+                <div class="about-card">
+                    <h3>رسالتنا</h3>
+                    <p>تقديم خدمات استثنائية بأعلى معايير الجودة والرفاهية لعملائنا الكرام مع الحفاظ على البيئة والاستدامة.</p>
+                </div>
+                <div class="about-card">
+                    <h3>قيمنا</h3>
+                    <p>الجودة، الاحترافية، النزاهة، الابتكار، ورضا العميل هو شعارنا الأول في كل ما نقدمه.</p>
+                </div>
+            </div>
 
-                <!-- الباقة الذهبية -->
-                <div class="package-card golden">
-                    <h3>الباقة الذهبية للنقل والتغليف</h3>
-                    <p class="en-name">Golden Moving Suite</p>
-                    <p style="color:var(--gray);margin-bottom:20px;">الفك والتركيب وشاحنات الدينا المبطنة - نقل آمن ومحترف</p>
-                    <ul class="features-list">
-                        <li>فك وتركيب الأثاث والنجف</li>
-                        <li>تغليف فاخر بأجود المواد</li>
-                        <li>شاحنات دينا مبطنة ومجهزة</li>
-                        <li>تأمين شامل على الممتلكات</li>
-                        <li>خدمة الترتيب في المنزل الجديد</li>
-                    </ul>
-                    <button class="btn-primary" onclick="selectPackage('golden')">احجز المعاينة المجانية</button>
+            <!-- الإحصائيات -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">+5000</div>
+                    <div class="stat-label">عميل سعيد</div>
                 </div>
+                <div class="stat-item">
+                    <div class="stat-number">+15</div>
+                    <div class="stat-label">منطقة نcoverage</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+50</div>
+                    <div class="stat-label">خدمة متنوعة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">دعم متواصل</div>
+                </div>
+            </div>
+
+            <!-- الرسالة -->
+            <div class="mission-section" style="margin-top: 80px;">
+                <h2>لماذا تختار بريق؟</h2>
+                <p>
+                    نحن في بريق نؤمن بأن كل عميل يستحق تجربة استثنائية. لذلك صممنا باقاتنا الفاخرة بعناية لتلبية أعلى معايير الجودة والرفاهية.
+                    فريقنا المتخصص من الخبراء يضمن لك خدمات لا مثيل لها، مع استخدام أحدث التقنيات والمواد الفاخرة المعتمدة عالمياً.
+                    سواء كنت تحتاج إلى تنظيف شامل لقصرك، أو نقل آمن لأثاثك، أو تعقيم شامل لممتلكاتك، نحن هنا لخدمتك.
+                </p>
+                <br>
+                <a href="booking.html" class="btn-primary">احجز باقتك الآن</a>
             </div>
         </div>
     </section>
@@ -328,10 +344,6 @@
         function toggleMenu() {
             document.querySelector('.menu-toggle').classList.toggle('active');
             document.querySelector('nav').classList.toggle('active');
-        }
-
-        function selectPackage(type) {
-            window.location.href = 'booking.html?package=' + type;
         }
     </script>
 </body>
