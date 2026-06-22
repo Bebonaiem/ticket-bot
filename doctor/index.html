@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="sub-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بريق للخدمات الفاخرة واللوجستية بالمملكة | Bareeq Premium Services</title>
+    <meta name="description" content="منظومة النظافة الفاخرة ونقل العفش الشامل في كافة مدن ومحافظات المملكة العربية السعودية. عروض حصرية ومعاينة مجانية بالكامل لعملاء السوشيال ميديا.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --charcoal: #090A0B;
+            --slate: #131517;
+            --gold: #D4AF37;
+            --gold-hover: #F3E5AB;
+            --white: #FFFFFF;
+            --gray: #A0A5B5;
+            --success: #25D366;
+            --font-ar: 'Cairo', sans-serif;
+            --font-en: 'Montserrat', sans-serif;
+            --font-title-en: 'Cinzel', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+        body {
+            background-color: var(--charcoal);
+            color: var(--white);
+            font-family: var(--font-ar);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.en-mode { font-family: var(--font-en); }
+        body.en-mode h1, body.en-mode h2, body.en-mode h3 { font-family: var(--font-title-en); }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
+
+        /* شريط الإعلانات الذهبي المتحرك */
+        .promo-ticker {
+            background: linear-gradient(90deg, #B8932E, var(--gold), #B8932E);
+            color: #000; font-weight: 700; font-size: 13px; padding: 8px 0;
+            position: fixed; width: 100%; top: 0; z-index: 1100; overflow: hidden;
+            box-shadow: 0 2px 15px rgba(212,175,55,0.3);
+        }
+        .ticker-wrap { display: flex; width: 100%; }
+        .ticker-move {
+            display: inline-block; white-space: nowrap; padding-left: 100%;
+            animation: ticker 25s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgba(9, 10, 11, 0.95);
+            border-bottom: 1px solid rgba(214, 175, 55, 0.15);
+            position: fixed; width: 100%; top: 35px; z-index: 1000; backdrop-filter: blur(10px);
+        }
+        .nav-container {
+            width: 90%; max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; padding: 15px 0;
+        }
+        .logo { font-size: 26px; font-weight: 700; color: var(--gold); font-family: var(--font-title-en) !important; letter-spacing: 1px; }
+        
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        .lang-btn {
+            background: none; border: 1px solid var(--gold); color: var(--gold);
+            padding: 8px 16px; cursor: pointer; font-weight: 600; font-family: var(--font-en);
+        }
+        .lang-btn:hover { background-color: var(--gold); color: #000; box-shadow: 0 0 15px rgba(212,175,55,0.4); }
+
+        /* HERO */
+        .hero {
+            padding: 240px 0 140px 0;
+            background: linear-gradient(to bottom, rgba(9,10,11,0.65), var(--charcoal)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            text-align: center;
+        }
+        .hero h1 { font-size: 52px; margin-bottom: 25px; font-weight: 700; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+        .hero p { font-size: 20px; color: var(--gray); max-width: 850px; margin: 0 auto 40px auto; }
+        
+        .btn-gold-trigger {
+            display: inline-block; background: linear-gradient(135deg, var(--gold), #B8932E); color: #000;
+            padding: 16px 40px; font-weight: 700; font-size: 16px; text-decoration: none; border-radius: 0;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.3); animation: pulse 2s infinite;
+            border: none; cursor: pointer;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212,175,55, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(212,175,55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212,175,55, 0); }
+        }
+
+        /* SERVICES GRID */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 40px; margin-bottom: 12px; }
+        .section-header p { color: var(--gold); font-size: 14px; letter-spacing: 3px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 35px; }
+        
+        .card { 
+            background-color: var(--slate); border: 1px solid rgba(212,175,55,0.05); 
+            padding: 45px; position: relative; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .card:hover { 
+            border-color: var(--gold); 
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 15px 40px rgba(212,175,55,0.15);
+        }
+        
+        .card .badge { position: absolute; top: 20px; left: 20px; font-size: 11px; background: rgba(212,175,55,0.15); color: var(--gold); padding: 5px 14px; font-weight: bold; border: 1px solid rgba(212,175,55,0.3); }
+        body.en-mode .card .badge { left: auto; right: 20px; }
+        
+        .card h3 { font-size: 24px; margin-bottom: 20px; color: var(--white); border-bottom: 1px solid rgba(212,175,55,0.15); padding-bottom: 15px; }
+        .card p { color: var(--gray); font-size: 14px; margin-bottom: 25px; }
+        
+        .card-details { list-style: none; }
+        .card-details li { font-size: 14px; color: #d0d4e0; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .card-details li::before { content: "✦"; color: var(--gold); font-weight: bold; }
+
+        /* ركن معرض الأعمال الفاخر */
+        .gallery-section { background-color: var(--slate); border-top: 1px solid rgba(212,175,55,0.1); }
+        .gallery-filters { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; flex-wrap: wrap; }
+        .filter-btn { background: none; border: 1px solid rgba(212,175,55,0.3); color: var(--gray); padding: 10px 22px; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 600; }
+        .filter-btn.active, .filter-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 4px 15px rgba(212,175,55,0.3); }
+        
+        /* لوحة التحكم ورفع الصور المباشرة من الجوال */
+        .upload-admin-box { max-width: 500px; margin: 0 auto 40px auto; background: var(--charcoal); border: 1px dashed var(--gold); padding: 20px; text-align: center; }
+        .upload-label { background: var(--gold); color: #000; padding: 8px 20px; font-weight: 700; cursor: pointer; display: inline-block; margin-top: 10px; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .gallery-item { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.4); display: block; }
+        .gallery-item:hover img, .gallery-item:hover video { transform: scale(1.06); }
+        .gallery-item img, .gallery-item video { width: 100%; height: 230px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .gallery-info { padding: 15px; background: rgba(19, 21, 23, 0.9); border-top: 1px solid rgba(212,175,55,0.1); }
+        .gallery-info h4 { font-size: 16px; color: var(--white); margin-bottom: 5px; }
+        .gallery-info span { font-size: 12px; color: var(--gold); font-weight: 600; }
+
+        /* ركن العروض الحصرية */
+        .offers-section { background-color: #0d0f11; border-top: 1px solid rgba(212,175,55,0.1); }
+        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+        .offer-card { background: var(--slate); border: 1px dashed rgba(212,175,55,0.3); padding: 30px; text-align: center; position: relative; }
+        .offer-price { font-size: 32px; color: var(--gold); font-weight: bold; margin: 15px 0; }
+        .countdown-timer { font-family: var(--font-en); font-size: 18px; color: #ff4d4d; font-weight: bold; margin-top: 10px; background: rgba(255,77,77,0.1); padding: 5px; display: inline-block; }
+
+        /* ركن السحب والجوائز */
+        .lottery-section { background: linear-gradient(180deg, var(--charcoal), #16191c); border-top: 1px solid rgba(212,175,55,0.1); position: relative; }
+        .lottery-box { max-width: 600px; margin: 0 auto; text-align: center; background: var(--slate); padding: 40px; border: 2px solid var(--gold); box-shadow: 0 15px 40px rgba(212,175,55,0.1); }
+        
+        .wheel-container { position: relative; width: 220px; height: 220px; margin: 30px auto; }
+        .wheel { 
+            width: 100%; height: 100%; border-radius: 50%; border: 8px solid var(--gold); 
+            background: conic-gradient(var(--charcoal) 0deg 120deg, #1c1f22 120deg 240deg, #2a2e33 240deg 360deg);
+            position: relative; transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+        }
+        .wheel-pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 25px solid #ff4d4d; z-index: 10; }
+
+        /* BOOKING FORM & GEOGRAPHY SELECTORS */
+        .booking-section { background-color: var(--slate); border-top: 1px solid rgba(212,175,55,0.1); }
+        .form-box, .checkout-box { max-width: 750px; margin: 0 auto; background-color: var(--charcoal); padding: 55px; border: 1px solid rgba(212,175,55,0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        .checkout-box { display: none; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 0.5px; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 16px; background-color: var(--slate); border: 1px solid rgba(255,255,255,0.08); color: var(--white); font-family: inherit; font-size: 14px;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(212,175,55,0.2); }
+
+        /* CHECKOUT GATEWAY */
+        .payment-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 25px 0; }
+        .pay-method {
+            background-color: var(--slate); border: 2px solid rgba(255,255,255,0.05); padding: 18px; text-align: center; cursor: pointer; font-weight: 700; font-size: 14px;
+        }
+        .pay-method.active { border-color: var(--gold); background: rgba(212,175,55,0.08); color: var(--gold); box-shadow: 0 5px 15px rgba(212,175,55,0.1); }
+        .cc-details { background: var(--slate); padding: 25px; margin-bottom: 20px; display: none; border: 1px solid rgba(255,255,255,0.05); }
+
+        /* MAP SECTION STYLING */
+        .map-section { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212,175,55,0.1); }
+        .map-wrapper { width: 100%; border: 1px solid rgba(212,175,55,0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.6); overflow: hidden; line-height: 0; }
+
+        /* FOOTER */
+        footer { background-color: #050607; padding: 70px 0 110px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); }
+        .footer-socials { margin: 30px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-socials a { color: var(--white); text-decoration: none; font-size: 14px; background: var(--slate); padding: 12px 24px; border: 1px solid rgba(212,175,55,0.2); font-weight: 600; }
+        .footer-socials a:hover { background-color: var(--gold); color: #000; box-shadow: 0 5px 20px rgba(212,175,55,0.4); }
+
+        /* STICKY BOTTOM BAR */
+        .sticky-bar { position: fixed; bottom: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; z-index: 2000; }
+        .sticky-btn { text-align: center; padding: 18px; font-weight: 700; text-decoration: none; font-size: 15px; }
+        .btn-c { background-color: #17191c; color: #fff; border-top: 2px solid var(--gold); }
+        .btn-w { background-color: var(--success); color: #000; }
+
+        @media(max-width:768px) {
+            .hero h1 { font-size: 34px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .form-box, .checkout-box { padding: 35px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-move" id="tickerText">
+                ✦ المـعـايـنـة فـي بـريـق مـجـانـيـة حـالـيـاً لـضـمـان الـثـقـة الـمـطـلـقـة بـيـنـنـا وبـيـنـكـم ✦ خـصـم حـصـري 15% لـعـمـلاء تـيـك تـوك، سـنـاب شـات، وإنـسـتـقـرام ✦ اتـرك تـقـيـيـمـاً لـلـمـوقـع واحـصـل عـلـى مـكـافـأة فـوريـة ✦
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">BAREEQ <span>PREMIUM</span></div>
+            <div class="header-controls">
+                <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="heroTitle">بريق للخدمات الفاخرة.. ثلاثة أجيال من الإتقان</h1>
+            <p id="heroDesc">نحن لا نقدم خدمات تقليدية؛ بل ندير العناية المتكاملة والبروتوكولية لأفخم الفلل والقصور، الشركات، والمستودعات الكبرى في المملكة العربية السعودية بأعلى معايير الحماية الطبية والميكانيكية.</p>
+            <a href="#book" class="btn-gold-trigger" id="heroCta">احجز فحصاً ومعاينة مجانية الآن</a>
+        </div>
+    </section>
+
+    <section class="container offers-section">
+        <div class="section-header">
+            <h2 id="offersTitle">🎁 ركن العروض والمواسم الفاخرة</h2>
+            <p id="offersSub">EXCLUSIVE LIMITED-TIME SUITES</p>
+        </div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <span class="badge" style="background:#ff4d4d; color:#fff;">ينتهي قريباً</span>
+                <h3 id="of1Title">✨ باقة النظافة العميقة للمنازل والفلل</h3>
+                <p id="of1Desc">جلي كامل للرخام، غسيل السجاد والستائر بالبخار، مع تعقيم طبي مجاني للمطابخ والحمامات.</p>
+                <div class="offer-price">499 <span style="font-size:14px;">ريال</span></div>
+                <div class="countdown-timer" id="timer1">04h 15m 30s</div>
+            </div>
+            <div class="offer-card">
+                <span class="badge">الأكثر توفيراً</span>
+                <h3 id="of2Title">❄️ العرض الماسي لغسيل المكيفات</h3>
+                <p id="of2Desc">تنظيف هيدروليكي جراحي لـ 5 مكيفات سبليت أو شباك، مع فحص مجاني لضغط الفريون ومجاري التصريف.</p>
+                <div class="offer-price">299 <span style="font-size:14px;">ريال</span></div>
+                <div class="countdown-timer" id="timer2">06h 45m 12s</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="galleryTitle">📸 معرض أعمالنا الحية برؤية ميدانية</h2>
+                <p id="gallerySub">BAREEQ LIVE MASTERPIECES Portfolio</p>
+            </div>
+
+            <div class="upload-admin-box">
+                <h3 style="font-size: 16px; color: var(--gold); margin-bottom: 5px;">⚡ لوحة رفع وإضافة الأعمال الفورية</h3>
+                <p style="font-size: 12px; color: var(--gray);">اختر القسم ثم ارفع الصورة/الفيديو من جوالك لتظهر في المعرض فوراً!</p>
+                <select id="uploadCategory" style="margin-top:10px; padding:5px; background:var(--slate); color:#fff; border:1px solid #333;">
+                    <option value="cleaning">ركن النظافة</option>
+                    <option value="moving">نقل العفش</option>
+                    <option value="ac">المكيفات</option>
+                </select>
+                <br>
+                <label class="upload-label">
+                    📁 اختر ملف العمل (صورة أو فيديو)
+                    <input type="file" id="fileUploader" accept="image/*,video/*" style="display:none;" onchange="handleLiveUpload(this)">
+                </label>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all', event)" id="fAll">كل الأعمال</button>
+                <button class="filter-btn" onclick="filterGallery('cleaning', event)" id="fClean">ركن النظافة</button>
+                <button class="filter-btn" onclick="filterGallery('moving', event)" id="fMove">نقل العفش</button>
+                <button class="filter-btn" onclick="filterGallery('ac', event)" id="fAc">المكيفات</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="ac">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80" alt="تعقيم صيانة">
+                    <div class="gallery-info">
+                        <h4 id="g1Title">غسيل مكيفات سبليت هيدروليكي</h4>
+                        <span id="g1Sub">ركن تعقيم المكيفات المتقدم</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cleaning">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=500&q=80" alt="نظافة فلل وقصور">
+                    <div class="gallery-info">
+                        <h4 id="g2Title">جلي رخام وتلميع واجهات قصر فاخر</h4>
+                        <span id="g2Sub">ركن النظافة والتعقيم الفاخر</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="moving">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=500&q=80" alt="تغليف أثاث فاخر">
+                    <div class="gallery-info">
+                        <h4 id="g3Title">تغليف خماسي الطبقات للتحف الثمينة</h4>
+                        <span id="g3Sub">ركن النقل والتوصيل اللوجستي</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container lottery-section">
+        <div class="section-header">
+            <h2 id="lotTitle">🌟 سحب التقدير الماسي لعملاء بريق السابقين</h2>
+            <p id="lotSub">EXCLUSIVE LOYALTY SPIN</p>
+        </div>
+        <div class="lottery-box">
+            <p id="lotDesc" style="font-size:14px; color:var(--gray); margin-bottom:20px;">إذا سبق لنا تشريفك وتقديم خدمة لك، أدخل رقم جوالك المسجل لدينا لتفعيل سحب الحظ الفوري والفوز بجوائز وخصومات كبرى!</p>
+            
+            <div class="form-group" style="max-width:350px; margin:0 auto 15px auto;">
+                <input type="tel" id="lotteryPhone" placeholder="05XXXXXXXX" style="text-align:center;">
+            </div>
+
+            <div class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <div class="wheel" id="luckyWheel"></div>
+            </div>
+
+            <button class="btn-gold-trigger" onclick="spinWheel()" id="spinBtn">اشترك في السحب الفوري</button>
+            <h3 id="lotteryResult" style="margin-top:20px; color:var(--success); font-size:20px;"></h3>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-header">
+            <h2 id="servicesTitle">الأركان الفاخرة للخدمات والنقل</h2>
+            <p id="servicesSub">PREMIUM INTEGRATED SUITES</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="card">
+                <span class="badge" id="b1">شامل ومفصّل</span>
+                <h3 id="s1Title">✨ ركن النظافة والتعقيم الفاخر</h3>
+                <p id="s1Desc">بروتوكولات تطهير وجلي مخصصة لكل بيئة سكنية أو تجارية لضمان عودة الأسطح والمباني للحالة الصفرية البرّاقة.</p>
+                <ul class="card-details" id="s1Details">
+                    <li><strong>الفلل والقصور:</strong> تلميع وجلي الرخام بالألماس، غسيل السجاد والستائر بالبخار الحار والتعطير الفاخر.</li>
+                    <li><strong>المنازل والشقق:</strong> تنظيف شامل للمطابخ والحمامات بمواد طبية، وجلي النوافذ والأسطح الزجاجية.</li>
+                    <li><strong>المكاتب والشركات:</strong> تلميع الواجهات الزجاجية، العناية بالأرضيات الخشبية والموكيت، وتطهير غرف الاجتماعات.</li>
+                    <li><strong>المستودعات والمخازن:</strong> غسيل وإزالة الزيوت من الأرضيات الخرسانية، تنظيف الأسقف وخطوط الإنتاج.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="badge" id="b2">الفئة النخبوية</span>
+                <h3 id="s2Title">📦 نقل العفش والتوصيل اللوجستي</h3>
+                <p id="s2Desc">أمان مطلق ونقل هندسي للأثاث والمقتنيات الثمينة داخل مدن ومحافظات المملكة بأعلى حماية ميكانيكية.</p>
+                <ul class="card-details" id="s2Details">
+                    <li><strong>الفك والتركيب:</strong> فك وتركيب غرف النوم والمطابخ المعقدة وشاشات العرض بواسطة نجارين محترفين.</li>
+                    <li><strong>التغليف الفاخر:</strong> تغليف خماسي الطبقات بالرولات الفقاعية والكرتون المقوى لحماية التحف والزجاج.</li>
+                    <li><strong>التحميل والتنزيل:</strong> طاقم فني مدرب على نقل الأوزان الثقيلة وحماية الحوائط والأرضيات من أي خدوش.</li>
+                    <li><strong>الأسطول الآمن:</strong> شاحنات دينا مغلقة ومبطنة بالكامل لحماية الأثاث من تقلبات الطقس والحرارة والمطر.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="badge" id="b3">الأكثر طلباً</span>
+                <h3 id="s3Title">❄️ غسيل وتعقيم المكيفات المتقدم</h3>
+                <p id="s3Desc">تطهير جراحي كامل لجميع وحدات وأنظمة التكييف لزيادة التبريد وتوفير استهلاك الطاقة الكهربائية.</p>
+                <ul class="card-details" id="s3Details">
+                    <li>غسيل بمضخات الضغط العالي مع استخدام غطاء العزل لمنع تسريب المياه نهائياً.</li>
+                    <li>تطهير شامل لملفات التبريد والفلاتر ومجاري الهواء من الفطريات ومسببات الحساسية.</li>
+                    <li>فحص مجاني ومباشر لضغط الفريون وخطوط التصريف مع كل عملية غسيل.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="book">
+        <div class="container">
+            <form id="mainBookingForm" name="bareeq-saudi-booking" method="POST" data-netlify="true" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" name="form-name" value="bareeq-saudi-booking" />
+                
+                <div class="form-box" id="step1Box">
+                    <h2 style="text-align:center; margin-bottom:10px;" id="formTitle">حجز موعد ومعاينة مجانية فورية</h2>
+                    <p style="text-align:center; color: var(--gray); font-size:14px; margin-bottom:30px;" id="formDesc">اختر منطقتك ومدينتك لتأكيد الحجز وضمان المعاينة المجانية بالكامل.</p>
+                    
+                    <div class="form-group">
+                        <label id="l1">الاسم الكريم</label>
+                        <input type="text" id="custName" name="client-name" placeholder="اسم العميل" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="l2">رقم الجوال الفاخر</label>
+                        <input type="tel" id="custPhone" name="client-phone" placeholder="05XXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="l3">نوع الخدمة المطلوبة</label>
+                        <select name="service-type" id="custService" required>
+                            <option value="cleaning">✨ ركن النظافة والتعقيم الفاخر (فلل، قصور، مكاتب، مستودعات)</option>
+                            <option value="moving">📦 نقل عفش وتوصيل شامل (فك، تركيب، تغليف، تحميل)</option>
+                            <option value="ac">❄️ غسيل وتعقيم مكيفات متقدم</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="lblRegion">المنطقة الإدارية</label>
+                        <select name="saudi-region" id="regionSelect" onchange="updateCitiesAndMap()" required>
+                            <option value="">-- اختر المنطقة --</option>
+                            <option value="riyadh">منطقة الرياض</option>
+                            <option value="makkah">منطقة مكة المكرمة</option>
+                            <option value="eastern">المنطقة الشرقية</option>
+                            <option value="madinah">منطقة المدينة المنورة</option>
+                            <option value="qassim">منطقة القصيم</option>
+                            <option value="asir">منطقة عسير</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label id="lblCity">المدينة / المحافظة</label>
+                        <select name="saudi-city" id="citySelect" required>
+                            <option value="">-- اختر المنطقة أولاً --</option>
+                        </select>
+                    </div>
+                    
+                    <input type="hidden" id="hiddenPayMethod" name="selected-payment-method" value="MADA">
+                    <input type="hidden" id="hiddenStatus" name="payment-status" value="Pending Check">
+                    <input type="hidden" id="hiddenPrize" name="lottery-prize" value="None">
+
+                    <button type="button" class="btn-gold-trigger" style="width:100%; margin-top:15px; font-size:16px; border:none; cursor:pointer;" onclick="goToPayment()" id="submitBtn">الاستمرار لتأكيد الحجز والدفع</button>
+                </div>
+
+                <div class="checkout-box" id="step2Box">
+                    <h2 style="text-align:center; margin-bottom:10px;" id="payTitle">بوابة الدفع الإلكتروني الفاخرة</h2>
+                    <p style="text-align:center; color: var(--gold); font-size:14px; margin-bottom:20px;" id="payDesc">اختر طريقة الدفع المفضلة لتأكيد الحجز النهائي وتفعيل خصم السوشيال ميديا تلقائياً</p>
+                    
+                    <div class="payment-methods">
+                        <div class="pay-method active" onclick="selectMethod('mada', this)">💳 مـدى (Mada)</div>
+                        <div class="pay-method" onclick="selectMethod('apple', this)">🍏 Apple Pay</div>
+                        <div class="pay-method" onclick="selectMethod('cc', this)">💳 Visa / MasterCard</div>
+                    </div>
+
+                    <div class="cc-details" id="ccFormBlock" style="display: block;">
+                        <div class="form-group">
+                            <label id="lblCardNum">رقم البطاقة</label>
+                            <input type="text" name="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19">
+                        </div>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                            <div class="form-group">
+                                <label id="lblExpiry">تاريخ الانتهاء</label>
+                                <input type="text" name="card-expiry" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label id="lblCvv">الرمز السري (CVV)</label>
+                                <input type="password" name="card-cvv" placeholder="***" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="applePayBlock" style="display:none; text-align:center; margin: 20px 0; padding:20px; background:#000; color:#fff; font-weight:bold; cursor:pointer;" onclick="processFinalPayment()">
+                         Pay - اضغط للدفع الفوري والتأكيد
+                    </div>
+
+                    <button type="submit" class="btn-gold-trigger" style="width:100%; font-size:16px; background:var(--success); color:#000; border:none; animation:none; cursor:pointer;" id="finalPayBtn">إتمام الدفع الإلكتروني وتأكيد الحجز</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header" style="margin-bottom: 35px;">
+                <h2 style="font-size: 32px; margin-bottom: 10px;" id="mapTitle">📍 مقر فرعنا في منطقتك</h2>
+                <p style="color: var(--gold); font-size: 14px;" id="mapSub">اختر منطقتك من النموذج بالأعلى لتتحول الخريطة إلى فرعنا ومستودعاتنا القريبة منك فوراً</p>
+            </div>
+            <div class="map-wrapper">
+                <iframe id="saudiLiveMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14510.985651910688!2d46.72532!3d24.600987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f49673da60d%3A0x6bba8ff79cb4d93!2z2KfZhNi52LLZitiSubmshSwg2KfZhNix2YrYp9i2!5e0!3m2!1sar!2ssa!4v1717144000000!3m2!1sar!2ssa" width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding:0;">
+            <div class="logo" style="margin-bottom:15px;">BAREEQ</div>
+            <p id="footerText">إدارة العناية الشاملة والمقاولات الخدمية للقصور والمنشآت الفاخرة بالمملكة</p>
+            
+            <div class="footer-socials">
+                <a href="https://tiktok.com/@alealamia_ksa" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <a href="https://www.snapchat.com/add/mbnabdullah3" target="_blank" rel="noopener noreferrer">Snapchat</a>
+                <a href="https://wa.me/966541066236" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
+            </div>
+
+            <p style="font-size:12px; color: #444; margin-top:30px;">© 2026 Bareeq Luxury Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="sticky-bar">
+        <a href="tel:+966541066236" class="sticky-btn btn-c" id="barCall">📞 اتصال مباشر</a>
+        <a href="https://wa.me/966541066236" class="sticky-btn btn-w" id="barWh">💬 واتساب سريع</a>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+        let selectedPayment = 'mada';
+
+        // روابط خرائط حقيقية ومعتمدة (خرائط موثقة بنظام الحماية HTTPS والرياض مضبوطة على إحداثياتك العزيزية)
+        const regionalMaps = {
+            riyadh: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14510.985651910688!2d46.72532!3d24.600987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f49673da60d%3A0x6bba8ff79cb4d93!2z2KfZhNi52LLZitiSubmshSwg2KfZhNix2YrYp9i2!5e0!3m2!1sar!2ssa!4v1717144000000",
+            makkah: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237142.1150493409!2d39.14115162446736!3d21.46231267866597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d01fb1137e59%3A0xee6759943d995db8!2sJeddah%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1717144100000",
+            eastern: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114463.8587395015!2d50.05448777085141!3d26.371629851613038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fb7299a912bb%3A0xa621f379ea617fa7!2sDammam%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1717144200000",
+            madinah: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116246.5912440954!2d39.51623910382343!3d24.468608249872582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bdbe519bfc733d%3A0x864098ebd9f3547e!2sMedina%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1717144300000",
+            qassim: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114134.8872922119!2d43.91030732386926!3d26.303102146313264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15f12613df42fbef%3A0xe7f975d45d31590d!2sBuraydah%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1717144400000",
+            asir: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119335.63222384776!2d42.45785081045339!3d18.22064117621415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e35389f417e997%3A0xa97866d6d2b45ff9!2sAbha%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1717144500000"
+        };
+
+        const saudiGeographicData = {
+            riyadh: ["الرياض", "الخرج", "الدرعية", "المجمعة", "الدوادمي", "الزلفي", "شقراء", "وادي الدواسر"],
+            makkah: ["مكة المكرمة", "جدة", "الطائف", "القنفذة", "الليث", "رابغ", "خليص"],
+            eastern: ["الدمام", "الخبر", "الأحساء", "الجبيل", "حفر الباطن", "القطيف", "الخفجي"],
+            madinah: ["المدينة المنورة", "ينبع", "العلا", "مهد الذهب", "بدر", "الحناكية"],
+            qassim: ["بريدة", "عنيزة", "الرس", "المذنب", "البكيرية", "البدائع"],
+            asir: ["أبها", "خميس مشيط", "بيشة", "محايل عسير", "ظهران الجنوب", "النماس"]
+        };
+
+        const enCities = {
+            riyadh: ["Riyadh", "Al-Kharj", "Ad-Diriyah", "Al-Majma'ah", "Ad-Dawadmi", "Al-Zulfi"],
+            makkah: ["Makkah", "Jeddah", "Taif", "Al-Qunfudhah", "Al-Laith", "Rabigh"],
+            eastern: ["Dammam", "Al-Khobar", "Al-Ahsa", "Al-Jubail", "Hafar Al-Batin", "Al-Qatif"],
+            madinah: ["Madinah", "Yanbu", "Al-Ula", "Mahd Al-Dhabab", "Badr"],
+            qassim: ["Buraydah", "Unaizah", "Ar-Rass", "Al-Mithnab", "Al-Bukayriyah"],
+            asir: ["Abha", "Khamis Mushait", "Bisha", "Mohayil Asir"]
+        };
+
+        // استدعاء محرك تحميل الصور المحفوظة عند فتح الموقع
+        document.addEventListener("DOMContentLoaded", () => {
+            loadSavedGallery();
+        });
+
+        function filterGallery(category, event) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if(event) event.target.classList.add('active');
+
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // حفظ الصورة المرفوعة في التخزين المحلي لكي لا تختفي عند تحديث الصفحة
+        function handleLiveUpload(input) {
+            const file = input.files[0];
+            const category = document.getElementById('uploadCategory').value;
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const savedWorks = JSON.parse(localStorage.getItem('bareeq_gallery') || '[]');
+                    savedWorks.unshift({ data: e.target.result, category: category, type: file.type });
+                    localStorage.setItem('bareeq_gallery', JSON.stringify(savedWorks));
+                    
+                    loadSavedGallery();
+                    alert("🎉 تم حفظ وإدراج العمل الحقيقي داخل المعرض بنجاح وسيبقى محفوظاً!");
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function loadSavedGallery() {
+            const savedWorks = JSON.parse(localStorage.getItem('bareeq_gallery') || '[]');
+            const grid = document.getElementById('galleryGrid');
+            
+            // إزالة العناصر المرفوعة سابقاً لمنع التكرار وبناء المعرض من جديد
+            document.querySelectorAll('.user-uploaded').forEach(el => el.remove());
+
+            savedWorks.forEach(work => {
+                const newItem = document.createElement('div');
+                newItem.className = 'gallery-item user-uploaded';
+                newItem.setAttribute('data-category', work.category);
+
+                let mediaHtml = work.type.startsWith('video/') 
+                    ? `<video src="${work.data}" controls loop muted></video>`
+                    : `<img src="${work.data}" alt="عمل ميداني">`;
+
+                let catName = work.category === 'cleaning' ? 'ركن النظافة الفاخر' : (work.category === 'moving' ? 'ركن النقل واللوجستية' : 'ركن المكيفات');
+
+                newItem.innerHTML = `
+                    ${mediaHtml}
+                    <div class="gallery-info">
+                        <h4>عمل ميداني تم رفعه حديثاً</h4>
+                        <span>${catName}</span>
+                    </div>
+                `;
+                grid.insertBefore(newItem, grid.firstChild);
+            });
+        }
+
+        function updateCitiesAndMap() {
+            const regionSelect = document.getElementById('regionSelect');
+            const citySelect = document.getElementById('citySelect');
+            const saudiLiveMap = document.getElementById('saudiLiveMap');
+            const mapSub = document.getElementById('mapSub');
+            
+            const selectedRegion = regionSelect.value;
+            citySelect.innerHTML = '';
+
+            if (!selectedRegion) {
+                citySelect.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المنطقة أولاً --' : '-- Select Region First --'}</option>`;
+                return;
+            }
+
+            const cities = currentLang === 'ar' ? saudiGeographicData[selectedRegion] : enCities[selectedRegion];
+            cities.forEach(city => {
+                const opt = document.createElement('option');
+                opt.value = city.toLowerCase();
+                opt.innerText = city;
+                citySelect.appendChild(opt);
+            });
+
+            if (regionalMaps[selectedRegion]) {
+                saudiLiveMap.src = regionalMaps[selectedRegion];
+                const regionName = regionSelect.options[regionSelect.selectedIndex].text;
+                mapSub.innerText = currentLang === 'ar' 
+                    ? `مقر شركة بريق المعتمد والنطاق اللوجستي لـ (${regionName}) ومحافظاتها` 
+                    : `Bareeq Certified Regional Hub & Logistical Framework for (${regionName}) Portfolio`;
+            }
+        }
+
+        function goToPayment() {
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const region = document.getElementById('regionSelect').value;
+            const city = document.getElementById('citySelect').value;
+
+            if(!name || !phone || !region || !city) {
+                alert(currentLang === 'ar' ? "يرجى ملء كافة البيانات الجغرافية أولاً الحجز!" : "Please fill out all technical fields first!");
+                return;
+            }
+            document.getElementById('step1Box').style.display = 'none';
+            document.getElementById('step2Box').style.display = 'block';
+        }
+
+        function selectMethod(method, element) {
+            selectedPayment = method;
+            document.querySelectorAll('.pay-method').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+
+            const ccBlock = document.getElementById('ccFormBlock');
+            const appleBlock = document.getElementById('applePayBlock');
+
+            if (method === 'mada' || method === 'cc') {
+                ccBlock.style.display = 'block';
+                appleBlock.style.display = 'none';
+            } else if (method === 'apple') {
+                ccBlock.style.display = 'none';
+                appleBlock.style.display = 'block';
+            }
+            document.getElementById('hiddenPayMethod').value = method.toUpperCase();
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert(currentLang === 'ar' ? "🎉 تم تسجيل الحجز ومعالجة البيانات بنجاح في سيرفرات Netlify!" : "🎉 Reserved Successfully via Netlify Infrastructure!");
+            event.target.submit();
+        }
+
+        let wheelSpun = false;
+        function spinWheel() {
+            const phone = document.getElementById('lotteryPhone').value;
+            if (!phone || phone.length < 9) {
+                alert(currentLang === 'ar' ? "الرجاء إدخل رقم جوال صحيح!" : "Please submit a valid phone record!");
+                return;
+            }
+            if (wheelSpun) {
+                alert(currentLang === 'ar' ? "لقد استهلكت محاولة السحب!" : "This token has already exhausted its spin!");
+                return;
+            }
+
+            wheelSpun = true;
+            const wheel = document.getElementById('luckyWheel');
+            const prizes = currentLang === 'ar' 
+                ? ["خدمة مجانية بالكامل ✨", "خصم 50% نخبوية 🎁", "خصم 25% حصرية ❄️"]
+                : ["Complimentary Full Service ✨", "Elite 50% Loyalty Discount 🎁", "Premium 25% Token ❄️"];
+            
+            const randomPick = Math.floor(Math.random() * 3);
+            const degrees = 1800 + (randomPick * 120);
+            
+            wheel.style.transform = `rotate(${degrees}deg)`;
+
+            setTimeout(() => {
+                const winningPrize = prizes[randomPick];
+                document.getElementById('lotteryResult').innerText = currentLang === 'ar' 
+                    ? `🎉 مبروك! فزت بـ: ${winningPrize}` 
+                    : `🎉 Criteria Locked! You Won: ${winningPrize}`;
+                
+                document.getElementById('hiddenPrize').value = winningPrize;
+                document.getElementById('spinBtn').style.display = 'none';
+            }, 4000);
+        }
+
+        setInterval(() => {
+            document.querySelectorAll('.countdown-timer').forEach(timer => {
+                let text = timer.innerText;
+                let parts = text.match(/\d+/g);
+                if(parts) {
+                    let h = parseInt(parts[0]), m = parseInt(parts[1]), s = parseInt(parts[2]);
+                    if(s > 0) s--;
+                    else { s = 59; if(m > 0) m--; else { m = 59; if(h > 0) h--; } }
+                    timer.innerText = `${h.toString().padStart(2,'0')}h ${m.toString().padStart(2,'0')}m ${s.toString().padStart(2,'0')}s`;
+                }
+            });
+        }, 1000);
+
+        const data = {
+            ar: {
+                btn: "English",
+                title: "بريق للخدمات الفاخرة.. ثلاثة أجيال من الإتقان",
+                desc: "نحن لا نقدم خدمات تقليدية؛ بل ندير العناية المتكاملة والبروتوكولية لأفخم الفلل والقصور، الشركات، والمستودعات الكبرى في المملكة العربية السعودية بأعلى معايير الحماية الطبية والميكانيكية.",
+                cta: "احجز فحصاً ومعاينة مجانية الآن",
+                sTitle: "الأركان الفاخرة للخدمات والنقل",
+                sub: "PREMIUM INTEGRATED SUITES",
+                b1:"شامل ومفصّل", b2:"الفئة النخبوية", b3:"الأكثر طلباً",
+                s1T: "✨ ركن النظافة والتعقيم الفاخر",
+                fT: "حجز موعد ومعاينة مجانية فورية",
+                fD: "اختر منطقتك ومدينتك لتأكيد الحجز وضمان المعاينة المجانية بالكامل.",
+                l1: "الاسم الكريم", l2: "رقم الجوال الفاخر", l3: "نوع الخدمة المطلوبة", sBtn: "الاستمرار لتأكيد الحجز والدفع",
+                bC: "📞 اتصال مباشر", bW: "💬 واتساب سريع",
+                fTxt: "إدارة العناية الشاملة والمقاولات الخدمية للقصور والمنشآت الفاخرة بالمملكة",
+                pT: "بوابة الدفع الإلكتروني الفاخرة",
+                pD: "اختر طريقة الدفع المفضلة لتأكيد الحجز النهائي وتفعيل خصم السوشيال ميديا تلقائياً",
+                cardN: "رقم البطاقة", cardE: "تاريخ الانتهاء", cardC: "الرمز السري (CVV)",
+                finBtn: "إتمام الدفع الإلكتروني وتأكيد الحجز",
+                lblReg: "المنطقة الإدارية", lblCit: "المدينة / المحافظة",
+                ticker: "✦ المـعـايـنـة فـي بـريـق مـجـانـيـة حـالـيـاً لـضـمـان الـثـقـة الـمـطـلـقـة بـيـنـنـا وبـيـنـكـم ✦",
+                ofT: "🎁 ركن العروض والمواسم الفاخرة", lotT: "🌟 سحب التقدير الماسي لعملاء بريق السابقين",
+                spin: "اشترك في السحب الفوري", mapT: "📍 مقر فرعنا في منطقتك",
+                galT: "📸 معرض أعمالنا الحية برؤية ميدانية", galS: "BAREEQ LIVE MASTERPIECES Portfolio",
+                fAll: "كل الأعمال", fClean: "ركن النظافة", fMove: "نقل العفش", fAc: "المكيفات"
+            },
+            en: {
+                btn: "العربية",
+                title: "Bareeq Premium Services | Three Generations of Mastery",
+                desc: "We manage structural property care; executive deep cleaning, certified disinfection, and architectural relocation across all provinces of Saudi Arabia under high mechanical protection.",
+                cta: "Book Complimentary On-Site Assessment",
+                sTitle: "The Premium Luxury Suites",
+                sub: "PREMIUM INTEGRATED SUITES",
+                b1: "COMPLETE SUITE", b2: "ELITE TIER", b3: "MOST REQUESTED",
+                s1T: "✨ Luxury Cleaning & Sterilization Suite",
+                fT: "Book Complimentary Property Inspection",
+                fD: "Select your administrative region and province to guarantee your zero-cost evaluation slot.",
+                l1: "Full Name", l2: "Premium Mobile No.", l3: "Service Protocol Type", sBtn: "Proceed to Secure Gateway",
+                bC: "📞 Call Directory", bW: "💬 VIP WhatsApp Chat",
+                fTxt: "Structural property management and logistical service operations for luxury estates across KSA.",
+                pT: "Premium Digital Payment Gateway",
+                pD: "Select your payment framework to securely activate social media discount tokens automatically.",
+                cardN: "Card Number", cardE: "Expiry Date", cardC: "Security Code (CVV)",
+                finBtn: "Authorize Payment & Secure Appointment",
+                lblReg: "Administrative Region", lblCit: "City / Province",
+                ticker: "✦ Property Assessment is Completely Free Currently for Absolute Trust ✦",
+                ofT: "🎁 Exclusive Offers & Luxury Seasons", lotT: "🌟 Bareeq Executive Loyalty Wheel Spin",
+                spin: "Trigger Loyalty Spin Now", mapT: "📍 Regional Branch Hub Location",
+                galT: "📸 Live Visual Masterpieces Showcase", galS: "BAREEQ LIVE MASTERPIECES Portfolio",
+                fAll: "All Works", fClean: "Cleaning", fMove: "Moving", fAc: "HVAC"
+            }
+        };
+
+        function toggleLanguage() {
+            const root = document.getElementById('sub-root');
+            const body = document.body;
+            
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                root.setAttribute('dir', 'ltr');
+                root.setAttribute('lang', 'en');
+                body.classList.add('en-mode');
+            } else {
+                currentLang = 'ar';
+                root.setAttribute('dir', 'rtl');
+                root.setAttribute('lang', 'ar');
+                body.classList.remove('en-mode');
+            }
+
+            document.getElementById('langBtn').innerText = data[currentLang].btn;
+            document.getElementById('heroTitle').innerText = data[currentLang].title;
+            document.getElementById('heroDesc').innerText = data[currentLang].desc;
+            document.getElementById('heroCta').innerText = data[currentLang].cta;
+            document.getElementById('servicesTitle').innerText = data[currentLang].sTitle;
+            document.getElementById('servicesSub').innerText = data[currentLang].sub;
+            document.getElementById('b1').innerText = data[currentLang].b1;
+            document.getElementById('b2').innerText = data[currentLang].b2;
+            document.getElementById('b3').innerText = data[currentLang].b3;
+            document.getElementById('s1Title').innerText = data[currentLang].s1T;
+            document.getElementById('formTitle').innerText = data[currentLang].fT;
+            document.getElementById('formDesc').innerText = data[currentLang].fD;
+            document.getElementById('l1').innerText = data[currentLang].l1;
+            document.getElementById('l2').innerText = data[currentLang].l2;
+            document.getElementById('l3').innerText = data[currentLang].l3;
+            document.getElementById('submitBtn').innerText = data[currentLang].sBtn;
+            document.getElementById('barCall').innerText = data[currentLang].bC;
+            document.getElementById('barWh').innerText = data[currentLang].bW;
+            document.getElementById('footerText').innerText = data[currentLang].fTxt;
+            document.getElementById('payTitle').innerText = data[currentLang].pT;
+            document.getElementById('payDesc').innerText = data[currentLang].pD;
+            document.getElementById('lblCardNum').innerText = data[currentLang].cardN;
+            document.getElementById('lblExpiry').innerText = data[currentLang].cardE;
+            document.getElementById('lblCvv').innerText = data[currentLang].cardC;
+            document.getElementById('finalPayBtn').innerText = data[currentLang].finBtn;
+            document.getElementById('lblRegion').innerText = data[currentLang].lblReg;
+            document.getElementById('lblCity').innerText = data[currentLang].lblCit;
+            document.getElementById('tickerText').innerText = data[currentLang].ticker;
+            document.getElementById('offersTitle').innerText = data[currentLang].ofT;
+            document.getElementById('lotTitle').innerText = data[currentLang].lotT;
+            document.getElementById('spinBtn').innerText = data[currentLang].spin;
+            document.getElementById('mapTitle').innerText = data[currentLang].mapT;
+            document.getElementById('galleryTitle').innerText = data[currentLang].galT;
+            document.getElementById('gallerySub').innerText = data[currentLang].galS;
+            document.getElementById('fAll').innerText = data[currentLang].fAll;
+            document.getElementById('fClean').innerText = data[currentLang].fClean;
+            document.getElementById('fMove').innerText = data[currentLang].fMove;
+            document.getElementById('fAc').innerText = data[currentLang].fAc;
+            
+            const regSel = document.getElementById('regionSelect');
+            regSel.innerHTML = currentLang === 'ar' ? `
+                <option value="">-- اختر المنطقة --</option>
+                <option value="riyadh">منطقة الرياض</option>
+                <option value="makkah">منطقة مكة المكرمة</option>
+                <option value="eastern">المنطقة الشرقية</option>
+                <option value="madinah">منطقة المدينة المنورة</option>
+                <option value="qassim">منطقة القصيم</option>
+                <option value="asir">منطقة عسير</option>
+            ` : `
+                <option value="">-- Select Administrative Region --</option>
+                <option value="riyadh">Riyadh Region</option>
+                <option value="makkah">Makkah Region</option>
+                <option value="eastern">Eastern Province</option>
+                <option value="madinah">Madinah Region</option>
+                <option value="qassim">Al-Qassim Region</option>
+                <option value="asir">Asir Region</option>
+            `;
+            updateCitiesAndMap();
+        }
+    </script>
+</body>
+</html>
