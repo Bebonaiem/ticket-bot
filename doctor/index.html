@@ -33,7 +33,11 @@
                 </ul>
             </nav>
             <div class="header-controls">
-                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                <button class="menu-toggle" onclick="toggleMenu()" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
             </div>
         </div>
@@ -330,8 +334,21 @@
         let selectedPayment = 'mada';
 
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            if (!e.target.closest('.nav-container') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
 
         // روابط خرائط حقيقية ومعتمدة (خرائط موثقة بنظام الحماية HTTPS والرياض مضبوطة على إحداثياتك العزيزية)
         const regionalMaps = {

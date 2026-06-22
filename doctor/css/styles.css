@@ -217,48 +217,53 @@ header {
     box-shadow: var(--shadow-gold);
 }
 
-/* --- Navigation --- */
+/* ========================================
+   NAVIGATION
+   ======================================== */
 nav {
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 30px;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
-    list-style: none !important;
-    display: inline-block !important;
+    list-style: none;
+    display: inline-block;
 }
 
 .nav-links li::before {
-    display: none !important;
-    content: none !important;
+    display: none;
+    content: none;
 }
 
 .nav-links a {
-    color: var(--gray) !important;
-    text-decoration: none !important;
+    color: var(--gray);
+    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     position: relative;
-    padding: 5px 0;
-    transition: color var(--transition-fast);
+    padding: 8px 0;
+    transition: color 0.3s ease;
     display: inline-block;
+    line-height: 1;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--gold) !important;
+    color: var(--gold);
 }
 
 .nav-links a:visited {
-    color: var(--gray) !important;
+    color: var(--gray);
 }
 
 .nav-links a::after {
@@ -269,7 +274,7 @@ nav {
     width: 0;
     height: 2px;
     background: var(--gold);
-    transition: width var(--transition-normal);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after,
@@ -283,19 +288,70 @@ nav {
     background: none;
     border: 1px solid var(--gold);
     color: var(--gold);
-    font-size: 20px;
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 8px;
     line-height: 1;
+    transition: all 0.3s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
 }
 
-/* RTL specific */
-[dir="rtl"] .nav-container {
-    direction: rtl;
+.menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--gold);
+    transition: all 0.3s ease;
 }
 
-[dir="rtl"] .header-controls {
-    flex-direction: row-reverse;
+.menu-toggle:hover {
+    background: var(--gold);
+}
+
+.menu-toggle:hover span {
+    background: var(--charcoal);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-toggle.active {
+    background: var(--gold);
+}
+
+.menu-toggle.active span {
+    background: var(--charcoal);
+}
+
+/* Mobile Menu Overlay */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+    opacity: 1;
 }
 
 /* ========================================
@@ -1297,35 +1353,189 @@ footer {
         font-size: 32px;
     }
 
-    /* Navigation Mobile */
+    /* ========================================
+       NAVIGATION - TABLET
+       ======================================== */
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+}
+
+/* ========================================
+   MOBILE NAVIGATION
+   ======================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        position: relative;
+    }
+
+    nav {
+        position: static;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
+        right: 0;
         width: 100%;
         background: var(--charcoal);
-        padding: 20px;
-        border-top: 1px solid rgba(212,175,55,0.1);
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid rgba(212,175,55,0.15);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         gap: 0;
+        z-index: 999;
     }
 
     .nav-links.active {
         display: flex;
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nav-links li {
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: block;
+        width: 100%;
     }
 
-    .nav-links a {
+    .nav-links li::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 16px 20px;
         font-size: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        color: var(--gray);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background: rgba(212,175,55,0.1);
+        color: var(--gold);
+    }
+
+    .nav-links li a::after {
+        display: none;
     }
 
     .menu-toggle {
-        display: block;
+        display: flex;
+    }
+
+    /* Header Mobile */
+    .header-controls {
+        flex-direction: row-reverse;
+        gap: 10px;
+    }
+
+    .lang-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo span {
+        font-size: 14px;
+    }
+
+    /* Hero Mobile */
+    .hero {
+        padding: 180px 0 100px 0;
+    }
+
+    .hero h1,
+    .page-header h1 {
+        font-size: 28px;
+        line-height: 1.4;
+    }
+
+    .hero p {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+
+    .page-header {
+        padding: 160px 0 60px 0;
+    }
+
+    /* Section Headers Mobile */
+    .section-header h2 {
+        font-size: 24px;
+    }
+
+    .section-header p {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    /* Grids Mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-content,
+    .service-detail,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stat-box {
+        padding: 25px 15px;
+    }
+
+    .stat-box h3 {
+        font-size: 28px;
+    }
+
+    .stat-box p {
+        font-size: 12px;
+    }
+
+    /* Cards Mobile */
+    .card {
+        padding: 30px 20px;
+    }
+
+    .card h3 {
+        font-size: 20px;
     }
 
     /* Forms Mobile */
@@ -1359,14 +1569,19 @@ footer {
     }
 
     .footer-links {
-        gap: 15px;
+        gap: 12px;
+        padding: 0 10px;
     }
 
     .footer-links a {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     /* Sticky Bar Mobile */
+    .sticky-bar {
+        box-shadow: 0 -2px 15px rgba(0,0,0,0.5);
+    }
+
     .sticky-btn {
         font-size: 13px;
         padding: 15px 10px;
@@ -1376,7 +1591,7 @@ footer {
 /* Small Mobile */
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .hero p {
@@ -1389,15 +1604,15 @@ footer {
     }
 
     .section-header h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .card {
-        padding: 30px 20px;
+        padding: 25px 18px;
     }
 
     .card h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .stats-grid {
@@ -1405,15 +1620,64 @@ footer {
     }
 
     .stat-box {
-        padding: 20px 15px;
+        padding: 20px 12px;
     }
 
     .stat-box h3 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .stat-box p {
+        font-size: 11px;
+    }
+
+    /* Mobile Nav Small */
+    .nav-links li a {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo span {
         font-size: 12px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .menu-toggle span {
+        width: 18px;
+    }
+
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    /* Footer Small */
+    .footer-links {
+        gap: 8px;
+    }
+
+    .footer-links a {
+        font-size: 11px;
+        padding: 6px 8px;
+    }
+
+    .footer-socials a {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    /* Sticky Bar Small */
+    .sticky-btn {
+        font-size: 12px;
+        padding: 14px 8px;
     }
 }
 
